@@ -1,0 +1,1 @@
+(window["webpackJsonp"]=window["webpackJsonp"]||[]).push([["chunk-2d21eadd"],{d71e:function(e,n,t){"use strict";t.r(n);var a=function(){var e=this,n=e.$createElement,t=e._self._c||n;return t("div",{staticClass:"app-container user"},[e._v(" 安全监控 ")])},s=[],c={name:"SafetyMonitoring"},i=c,r=t("2877"),o=Object(r["a"])(i,a,s,!1,null,"04a98272",null);n["default"]=o.exports}}]);

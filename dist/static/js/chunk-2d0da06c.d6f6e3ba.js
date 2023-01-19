@@ -1,0 +1,1 @@
+(window["webpackJsonp"]=window["webpackJsonp"]||[]).push([["chunk-2d0da06c"],{"6a9d":function(n,a,e){"use strict";e.r(a);var t=function(){var n=this,a=n.$createElement,e=n._self._c||a;return e("div",{staticClass:"app-container user"},[n._v(" 安全确认 ")])},c=[],s={name:"SafetyConfirmation"},i=s,r=e("2877"),o=Object(r["a"])(i,t,c,!1,null,"70bac06e",null);a["default"]=o.exports}}]);

@@ -1,0 +1,1 @@
+(window["webpackJsonp"]=window["webpackJsonp"]||[]).push([["chunk-2d0baa4f"],{"37a6":function(a,e,n){"use strict";n.r(e);var t=function(){var a=this,e=a.$createElement,n=a._self._c||e;return n("div",{staticClass:"app-container user"},[a._v(" 安全设计 ")])},s=[],c={name:"SafetyDesign"},i=c,r=n("2877"),u=Object(r["a"])(i,t,s,!1,null,"7a13b016",null);e["default"]=u.exports}}]);

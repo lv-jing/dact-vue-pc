@@ -1,0 +1,1 @@
+(window["webpackJsonp"]=window["webpackJsonp"]||[]).push([["chunk-2d20791c"],{a0a8:function(e,n,t){"use strict";t.r(n);var a=function(){var e=this,n=e.$createElement,t=e._self._c||n;return t("div",{staticClass:"app-container user"},[e._v(" 安全验证 ")])},c=[],i={name:"SecurityVerification"},r=i,s=t("2877"),u=Object(s["a"])(r,a,c,!1,null,"4081c9f0",null);n["default"]=u.exports}}]);
