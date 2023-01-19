@@ -1,6 +1,7 @@
 <template>
   <div class="app-container user">
-    <el-button style="margin-bottom: 15px" type="primary" icon="el-icon-plus" size="mini"></el-button>
+    <el-button @click="addProject" style="margin-bottom: 15px" type="primary" icon="el-icon-plus"
+               size="small"></el-button>
     <div class="el-table-search">
       <el-form :inline="true" :model="queryParams" class="demo-form-inline">
         <el-form-item label="Enterprise Abbr">
@@ -26,10 +27,12 @@
         <el-table-column label="Option">
           <template>
             <el-button
-              size="mini">Edit</el-button>
+              size="mini">Edit
+            </el-button>
             <el-button
               size="mini"
-              type="danger">Delete</el-button>
+              type="danger">Delete
+            </el-button>
           </template>
         </el-table-column>
       </el-table>
@@ -41,20 +44,65 @@
         @pagination="getList"
       />
     </div>
+    <el-dialog
+      :title="title"
+      :visible.sync="dialogVisible"
+      width="35%">
+      <el-form label-position="left" label-width="90px" :model="ruleForm" ref="ruleForm" :rules="rules">
+        <el-form-item label="Enterprise" prop="enterprise_id">
+          <el-select v-model="ruleForm.enterprise_id" placeholder="select" class="w100">
+            <el-option label="长安" value="shanghai"></el-option>
+            <el-option label="吉利" value="beijing"></el-option>
+          </el-select>
+        </el-form-item>
+        <el-form-item label="Vehicle" prop="vehicle_name">
+          <el-input v-model="ruleForm.vehicle_name" placeholder="please input"></el-input>
+        </el-form-item>
+        <el-form-item label="Address">
+          <el-input v-model="ruleForm.address" placeholder="please input"></el-input>
+        </el-form-item>
+        <el-form-item label="Logo">
+          <AvatarUploader/>
+        </el-form-item>
+      </el-form>
+      <span slot="footer" class="dialog-footer">
+    <el-button @click="dialogVisible = false">Cancel</el-button>
+    <el-button type="primary" @click="submitForm('ruleForm')">Confirm</el-button>
+  </span>
+    </el-dialog>
   </div>
 </template>
 
 <script>
+import AvatarUploader from "@/components/AvatarUploader"
 export default {
   name: "ProjectSpace",
+  components:{
+    AvatarUploader
+  },
   data() {
     return {
+      title: '',
+      dialogVisible: false,
+      ruleForm:{
+        enterprise_id:'',
+        vehicle_name:'',
+        address:''
+      },
       total: 20,
       queryParams: {
         pageNum: 1,
         pageSize: 10,
         user: '',
         region: '',
+      },
+      rules: {
+        enterprise_id: [
+          {required: true, message: '请选择', trigger: 'change'},
+        ],
+        vehicle_name: [
+          {required: true, message: '请输入', trigger: 'change'},
+        ],
       },
       tableData: [{
         date: '2016-05-02',
@@ -76,6 +124,20 @@ export default {
     };
   },
   methods: {
+    addProject() {
+      this.dialogVisible = true
+      this.title = 'Create projectSpace'
+    },
+    submitForm(formName) {
+      this.$refs[formName].validate((valid) => {
+        if (valid) {
+          alert('submit!');
+        } else {
+          console.log('error submit!!');
+          return false;
+        }
+      });
+    },
     onSubmit() {
       console.log('submit!');
     },
