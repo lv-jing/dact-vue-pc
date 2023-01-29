@@ -1,15 +1,16 @@
 <template>
 
   <div>
-    <el-tabs v-model="active" @tab-click="handleClick">
+    <el-tabs v-model="activeTable" @tab-click="handleClick">
       <el-tab-pane label="LEVEL-5" name="first"></el-tab-pane>
       <el-tab-pane label="LEVEL-4" name="second"></el-tab-pane>
       <el-tab-pane label="LEVEL-3" name="third"></el-tab-pane>
       <el-tab-pane label="LEVEL-2" name="fourth"></el-tab-pane>
       <el-tab-pane label="LEVEL-1" name="fifth"></el-tab-pane>
-      <el-tab-pane label="TREES" name="sixth">定时任务补偿</el-tab-pane>
+      <el-tab-pane label="TREES" name="sixth"></el-tab-pane>
     </el-tabs>
-    <SecondTable :activeName="activeName" v-show="active!=='sixth'" :tableData="tableData"/>
+    <SecondTable :activeName="activeName" v-if="activeTable!=='sixth'" :tableData="tableData"/>
+    <div v-else>定时任务补偿222</div>
   </div>
 
 </template>
@@ -22,15 +23,24 @@ export default {
   components: {
     SecondTable,
   },
-  props: ['active', 'activeName'],
+  props:{
+    activeName:{
+      type: String,
+    }
+  },
   data() {
     return {
       tableData: [],
+      activeTable:sessionStorage.getItem('table_name')
     };
   },
+  created() {
+    window.addEventListener('setItem', () => {
+      this.activeTable = sessionStorage.getItem('table_name')
+    })
+  },
   mounted() {
-    console.log(this.active);
-    if (this.active === 'first') {
+    if (this.activeTable === 'first') {
       this.tableData = [{
         date: '2016-05-02',
         name: '王小虎',

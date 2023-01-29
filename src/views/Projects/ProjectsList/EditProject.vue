@@ -3,7 +3,8 @@
     <el-tabs class="back-f" v-model="activeName" type="border-card" @tab-click="handleClick" lazy>
       <el-tab-pane name="first" lazy>
         <template slot="label">
-          <div>Project Information<br><small>项目信息</small></div>
+          <div class="label-cont">Project Information</div>
+          <small>项目信息</small>
         </template>
         <ProjectInformation/>
       </el-tab-pane>
@@ -29,7 +30,7 @@
         <template slot="label">
           <div>Threats analysis<br><small>威胁分析</small></div>
         </template>
-        <ThreatsAnalysis :active="active" :activeName="activeName"/>
+        <ThreatsAnalysis :activeName="activeName"/>
       </el-tab-pane>
       <el-tab-pane name="sixth">
         <template slot="label">
@@ -66,6 +67,30 @@
         </template>
         <SecurityClaim :activeName="activeName"/>
       </el-tab-pane>
+      <el-tab-pane name="twelfth">
+        <template slot="label">
+          <div>Specification<br><small>安全规范</small></div>
+        </template>
+        <SecurityClaim :activeName="activeName"/>
+      </el-tab-pane>
+      <el-tab-pane name="thirteenth">
+        <template slot="label">
+          <div>Intefration Verification<br><small>集成规则</small></div>
+        </template>
+        <SecurityClaim :activeName="activeName"/>
+      </el-tab-pane>
+      <el-tab-pane name="fourteenth">
+        <template slot="label">
+          <div>Validation<br><small>安全验证</small></div>
+        </template>
+        <SecurityClaim :activeName="activeName"/>
+      </el-tab-pane>
+      <el-tab-pane name="fifteenth">
+        <template slot="label">
+          <div>TBD<br><small>待定</small></div>
+        </template>
+        <SecurityClaim :activeName="activeName"/>
+      </el-tab-pane>
     </el-tabs>
   </div>
 </template>
@@ -98,22 +123,16 @@ export default {
   },
   data() {
     return {
-      activeName: 'first',
-      active: 'first',
+      activeName: 'first'
     };
   },
   created() {
     this.activeName = sessionStorage.getItem('current_name');
-    this.active = sessionStorage.getItem('table_name');
-  },
-  beforeUpdate() {
-    console.log(1);
   },
   methods: {
     handleClick(tab) {
+      this.resetSetItem('table_name', 'first')
       sessionStorage.setItem('current_name', tab.name);
-      sessionStorage.setItem('table_name', 'first');
-      this.active = 'first';
     },
   },
 };

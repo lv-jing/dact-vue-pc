@@ -33,6 +33,22 @@ import DictTag from '@/components/DictTag'
 // 头部标签组件
 import VueMeta from 'vue-meta'
 
+Vue.prototype.resetSetItem = function (key, newVal) {
+  if (key) {
+    // 创建一个StorageEvent事件
+    var newStorageEvent = document.createEvent('StorageEvent')
+    const storage = {
+      setItem: function (k, val) {
+        sessionStorage.setItem(k, val)
+        // 初始化创建的事件
+        newStorageEvent.initStorageEvent('setItem', false, false, k, null, val, null, null)
+        // 派发对象
+        window.dispatchEvent(newStorageEvent)
+      }
+    }
+    return storage.setItem(key, newVal)
+  }
+}
 // 全局方法挂载
 Vue.prototype.parseTime = parseTime
 Vue.prototype.resetForm = resetForm

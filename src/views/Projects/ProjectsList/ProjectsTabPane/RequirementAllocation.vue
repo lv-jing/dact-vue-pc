@@ -89,7 +89,14 @@ export default {
       }],
     };
   },
-  methods: {},
+  methods: {
+    onSubmit(){
+
+    },
+    getList(){
+
+    }
+  },
 };
 </script>
 

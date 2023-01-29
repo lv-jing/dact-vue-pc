@@ -152,7 +152,6 @@ export default {
     },
   },
   created() {
-    console.log(this.$store.state.settings.theme);
     cssVars({
       onlyLegacy: true,
       variables: {
