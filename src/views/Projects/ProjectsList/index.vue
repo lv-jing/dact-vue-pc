@@ -7,15 +7,20 @@
             项目空间1<button @click="handleGoto" class="header-icon el-icon-circle-plus add-icon"></button>
           </template>
           <el-table
-            :header-cell-style="{background:'#f0f9eb', color:'black'}"
             :data="tableData"
             style="width: 100%">
-            <el-table-column prop="date" label="Enterprise"></el-table-column>
-            <el-table-column prop="name" label="Enterprise"></el-table-column>
-            <el-table-column prop="address" label="Abbr"></el-table-column>
-            <el-table-column prop="address" label="Vehicle"></el-table-column>
-            <el-table-column prop="address" label="Address"></el-table-column>
-            <el-table-column prop="address" label="Create By"></el-table-column>
+            <el-table-column prop="project_toe" label="Project TOE"></el-table-column>
+            <el-table-column prop="document_class" label="TOE level"></el-table-column>
+            <el-table-column prop="document_version" label="Document Version"></el-table-column>
+            <el-table-column prop="status" label="Status"></el-table-column>
+            <el-table-column prop="authors" label="Author(s)"></el-table-column>
+            <el-table-column prop="reviewers" label="Reviewer(s)"></el-table-column>
+            <el-table-column prop="creator" label="Create By">
+              <template slot-scope="scope">
+                {{ scope.row.creator }}<br />
+                {{ scope.row.created_at }}<br />
+              </template>
+            </el-table-column>
             <el-table-column label="Option">
               <template>
                 <el-button
@@ -32,15 +37,20 @@
             项目空间2<button @click="handleGoto" class="header-icon el-icon-circle-plus add-icon" style="color: #67C23A"></button>
           </template>
           <el-table
-            :header-cell-style="{background:'#f0f9eb', color:'black'}"
             :data="tableData"
             style="width: 100%">
-            <el-table-column prop="date" label="Enterprise"></el-table-column>
-            <el-table-column prop="name" label="Enterprise"></el-table-column>
-            <el-table-column prop="address" label="Abbr"></el-table-column>
-            <el-table-column prop="address" label="Vehicle"></el-table-column>
-            <el-table-column prop="address" label="Address"></el-table-column>
-            <el-table-column prop="address" label="Create By"></el-table-column>
+            <el-table-column prop="project_toe" label="Project TOE"></el-table-column>
+            <el-table-column prop="document_class" label="TOE level"></el-table-column>
+            <el-table-column prop="document_version" label="Document Version"></el-table-column>
+            <el-table-column prop="status" label="Status"></el-table-column>
+            <el-table-column prop="authors" label="Author(s)"></el-table-column>
+            <el-table-column prop="reviewers" label="Reviewer(s)"></el-table-column>
+            <el-table-column prop="creator" label="Create By">
+              <template slot-scope="scope">
+                {{ scope.row.creator }}<br />
+                {{ scope.row.created_at }}<br />
+              </template>
+            </el-table-column>
             <el-table-column label="Option">
               <template>
                 <el-button
@@ -57,15 +67,20 @@
             项目空间3<button @click="handleGoto" class="header-icon el-icon-circle-plus add-icon" style="color: #67C23A"></button>
           </template>
           <el-table
-            :header-cell-style="{background:'#f0f9eb', color:'black'}"
             :data="tableData"
             style="width: 100%">
-            <el-table-column prop="date" label="Enterprise"></el-table-column>
-            <el-table-column prop="name" label="Enterprise"></el-table-column>
-            <el-table-column prop="address" label="Abbr"></el-table-column>
-            <el-table-column prop="address" label="Vehicle"></el-table-column>
-            <el-table-column prop="address" label="Address"></el-table-column>
-            <el-table-column prop="address" label="Create By"></el-table-column>
+            <el-table-column prop="project_toe" label="Project TOE"></el-table-column>
+            <el-table-column prop="document_class" label="TOE level"></el-table-column>
+            <el-table-column prop="document_version" label="Document Version"></el-table-column>
+            <el-table-column prop="status" label="Status"></el-table-column>
+            <el-table-column prop="authors" label="Author(s)"></el-table-column>
+            <el-table-column prop="reviewers" label="Reviewer(s)"></el-table-column>
+            <el-table-column prop="creator" label="Create By">
+              <template slot-scope="scope">
+                {{ scope.row.creator }}<br />
+                {{ scope.row.created_at }}<br />
+              </template>
+            </el-table-column>
             <el-table-column label="Option">
               <template>
                 <el-button
@@ -82,15 +97,20 @@
             项目空间4<button @click="handleGoto" class="header-icon el-icon-circle-plus add-icon" style="color: #67C23A"></button>
           </template>
           <el-table
-            :header-cell-style="{background:'#f0f9eb', color:'black'}"
             :data="tableData"
             style="width: 100%">
-            <el-table-column prop="date" label="Enterprise"></el-table-column>
-            <el-table-column prop="name" label="Enterprise"></el-table-column>
-            <el-table-column prop="address" label="Abbr"></el-table-column>
-            <el-table-column prop="address" label="Vehicle"></el-table-column>
-            <el-table-column prop="address" label="Address"></el-table-column>
-            <el-table-column prop="address" label="Create By"></el-table-column>
+            <el-table-column prop="project_toe" label="Project TOE"></el-table-column>
+            <el-table-column prop="document_class" label="TOE level"></el-table-column>
+            <el-table-column prop="document_version" label="Document Version"></el-table-column>
+            <el-table-column prop="status" label="Status"></el-table-column>
+            <el-table-column prop="authors" label="Author(s)"></el-table-column>
+            <el-table-column prop="reviewers" label="Reviewer(s)"></el-table-column>
+            <el-table-column prop="creator" label="Create By">
+              <template slot-scope="scope">
+                {{ scope.row.creator }}<br />
+                {{ scope.row.created_at }}
+              </template>
+            </el-table-column>
             <el-table-column label="Option">
               <template>
                 <el-button
@@ -115,21 +135,14 @@ export default {
     return {
       activeNames: '1',
       tableData: [{
-        date: '2016-05-02',
-        name: '王小虎',
-        address: '上海市普陀区金沙江路 1518 弄',
-      }, {
-        date: '2016-05-04',
-        name: '王小虎',
-        address: '上海市普陀区金沙江路 1517 弄',
-      }, {
-        date: '2016-05-01',
-        name: '王小虎',
-        address: '上海市普陀区金沙江路 1519 弄',
-      }, {
-        date: '2016-05-03',
-        name: '王小虎',
-        address: '上海市普陀区金沙江路 1516 弄',
+        project_toe:'Infortainment',
+        document_class:'Function',
+        document_version:'3.0',
+        status:'Draft',
+        authors:'Zhao Shawn',
+        reviewers:'Liu Zheng',
+        creator:'陈泓睿',
+        created_at:'2022-12-19 18:24'
       }],
     };
   },

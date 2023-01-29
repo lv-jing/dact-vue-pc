@@ -22,12 +22,17 @@
           highlight-current-row
           @row-click="rowClick"
           style="width: 100%">
-          <el-table-column prop="date" label="Enterprise"></el-table-column>
-          <el-table-column prop="name" label="Enterprise Abbr"></el-table-column>
-          <el-table-column prop="address" label="Vehicle"></el-table-column>
+          <el-table-column prop="enterprise" label="Enterprise"></el-table-column>
+          <el-table-column prop="enterprise_short" label="Enterprise Abbr"></el-table-column>
+          <el-table-column prop="vehicle_name" label="Vehicle"></el-table-column>
           <el-table-column prop="address" label="Address"></el-table-column>
-          <el-table-column prop="address" label="Modified Information"></el-table-column>
-          <el-table-column label="Operations" width="220">
+          <el-table-column prop="display_name" label="Modified Information">
+            <template slot-scope="scope">
+              {{ scope.row.display_name }}<br />
+              {{ scope.row.created_at }}
+            </template>
+          </el-table-column>
+          <el-table-column label="Operations" width="215">
             <template>
               <router-link class="ml10" :to="{path:'/ProjectList',query:{id:1}}">
                 <el-button
@@ -35,12 +40,18 @@
                   size="mini">Project List
                 </el-button>
               </router-link>
-              <router-link class="ml10" :to="{path:'/Members',query:{id:1}}">
-                <el-button
-                  type="text"
-                  size="mini">Members
-                </el-button>
-              </router-link>
+<!--              <router-link class="ml10" :to="{path:'/Members',query:{id:1}}">-->
+<!--                <el-button-->
+<!--                  type="text"-->
+<!--                  size="mini">Members1-->
+<!--                </el-button>-->
+<!--              </router-link>-->
+              <el-button
+                class="ml10"
+                @click.native.stop="handleMember"
+                type="text"
+                size="mini">Members
+              </el-button>
               <router-link class="ml10" :to="{path:'/Libraries',query:{id:1}}">
                 <el-button
                   type="text"
@@ -84,6 +95,18 @@
     <el-button type="primary" @click="submitForm('ruleForm')">Confirm</el-button>
   </span>
       </el-dialog>
+      <!--  Members弹窗    -->
+      <el-dialog :visible.sync="memberVisible">
+        <div class="edit_dev">
+          <el-transfer
+            @change="handleChange"
+            v-model="value"
+            :data="data"
+            :titles="['Project Space Members', 'Resource Pool']"
+          ></el-transfer>
+        </div>
+
+      </el-dialog>
     </div>
     <router-view/>
   </div>
@@ -99,6 +122,18 @@ export default {
   },
   data() {
     return {
+      memberVisible:false,
+      value:[],
+      data:[
+        {
+          key:'1',
+          label:'陈泓睿'
+        },
+        {
+          key:'2',
+          label:'张依雯'
+        }
+      ],
       title: '',
       dialogVisible: false,
       ruleForm: {
@@ -121,23 +156,16 @@ export default {
           {required: true, message: '请输入', trigger: 'change'},
         ],
       },
-      tableData: [{
-        date: '2016-05-02',
-        name: '王小虎',
-        address: '上海市普陀区金沙江路 1518 弄',
-      }, {
-        date: '2016-05-04',
-        name: '王小虎',
-        address: '上海市普陀区金沙江路 1517 弄',
-      }, {
-        date: '2016-05-01',
-        name: '王小虎',
-        address: '上海市普陀区金沙江路 1519 弄',
-      }, {
-        date: '2016-05-03',
-        name: '王小虎',
-        address: '上海市普陀区金沙江路 1516 弄',
-      }],
+      tableData: [
+        {
+          enterprise:'上汽乘用车',
+          enterprise_short:'SAIC',
+          vehicle_name:'EV52',
+          address:'上海市杨浦区军工路2500号',
+          display_name:'陈泓睿',
+          created_at:'2022-11-17 23:46:57',
+        }
+      ],
     };
   },
   methods: {
@@ -160,6 +188,13 @@ export default {
         }
       });
     },
+    // 切换人员
+    handleMember(){
+      this.memberVisible = true
+    },
+    handleChange(value, direction, movedKeys) {
+      console.log(value, direction, movedKeys);
+    },
     onSubmit() {
       console.log('submit!');
     },
@@ -170,7 +205,8 @@ export default {
 
 }
 </script>
-
 <style scoped>
-
+.edit_dev >>> .el-transfer-panel {
+  width:37%;
+}
 </style>
