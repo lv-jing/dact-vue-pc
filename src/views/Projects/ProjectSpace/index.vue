@@ -19,30 +19,31 @@
       <div class="el-table-content">
         <el-table
           :data="tableData"
+          highlight-current-row
+          @row-click="rowClick"
           style="width: 100%">
           <el-table-column prop="date" label="Enterprise"></el-table-column>
           <el-table-column prop="name" label="Enterprise Abbr"></el-table-column>
           <el-table-column prop="address" label="Vehicle"></el-table-column>
           <el-table-column prop="address" label="Address"></el-table-column>
           <el-table-column prop="address" label="Modified Information"></el-table-column>
-          <el-table-column label="" width="365">
+          <el-table-column label="Operations" width="220">
             <template>
-              <el-button
-                @click="addProject"
-                size="mini">Enter
-              </el-button>
               <router-link class="ml10" :to="{path:'/ProjectList',query:{id:1}}">
                 <el-button
+                  type="text"
                   size="mini">Project List
                 </el-button>
               </router-link>
               <router-link class="ml10" :to="{path:'/Members',query:{id:1}}">
                 <el-button
+                  type="text"
                   size="mini">Members
                 </el-button>
               </router-link>
               <router-link class="ml10" :to="{path:'/Libraries',query:{id:1}}">
                 <el-button
+                  type="text"
                   size="mini">Libraries
                 </el-button>
               </router-link>
@@ -140,6 +141,11 @@ export default {
     };
   },
   methods: {
+    rowClick(row, column, event){
+      this.dialogVisible = true
+      this.title = 'Edit projectSpace'
+      console.log(row, column, event);
+    },
     addProject() {
       this.dialogVisible = true
       this.title = 'Create projectSpace'

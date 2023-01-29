@@ -1,19 +1,18 @@
 <template>
   <div id="tags-view-container" class="tags-view-container">
     <scroll-pane ref="scrollPane" class="tags-view-wrapper" @scroll="handleScroll">
-      <router-link
-        key="index"
-        :to="{ path: '/index', fullPath: '/index' }"
-        tag="span"
-        :class="showHome.name=='Index'?'active':''"
-        :style="showHome.name==='Index'?{'background-color':'#409eff','color':'#ffffff'}:''"
-        class="tags-view-item"
-      >
-        首页
-      </router-link>
+<!--      <router-link-->
+<!--        key="index"-->
+<!--        :to="{ path: '/index', fullPath: '/index' }"-->
+<!--        tag="span"-->
+<!--        :class="showHome.name=='Index'?'active':''"-->
+<!--        :style="showHome.name==='Index'?{'background-color':'#409eff','color':'#ffffff'}:''"-->
+<!--        class="tags-view-item"-->
+<!--      >-->
+<!--        首页-->
+<!--      </router-link>-->
       <router-link
         v-for="tag in visitedViews"
-        v-show="tag.name!=='Index'"
         ref="tag"
         :key="tag.path"
         :class="isActive(tag)?'active':''"
@@ -56,7 +55,14 @@ export default {
   },
   computed: {
     visitedViews() {
-      return this.$store.state.tagsView.visitedViews
+      let list = this.$store.state.tagsView.visitedViews
+      list = [{ path: '/index',name:'Index',fullPath:'/index',meta: { affix: true }, title: '首页' }].concat(list)
+      let hash = {}
+      // 合并去重每次刷新页面首页都是第一个
+      return  list.reduce((item, next) => {
+        hash[next.name] ? '' : hash[next.name] = true && item.push(next)
+        return item
+      }, [])
     },
     routes() {
       return this.$store.state.permission.routes
@@ -86,6 +92,10 @@ export default {
     this.addTags()
   },
   methods: {
+    isDashboard(route) {
+      const name = route && route.name
+      return name === 'Index';
+    },
     isActive(route) {
       return route.path === this.$route.path
     },

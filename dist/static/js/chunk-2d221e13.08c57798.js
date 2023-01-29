@@ -1,1 +1,0 @@
-(window["webpackJsonp"]=window["webpackJsonp"]||[]).push([["chunk-2d221e13"],{cbdb:function(e,n,t){"use strict";t.r(n);var c=function(){var e=this,n=e.$createElement,t=e._self._c||n;return t("div",{staticClass:"app-container user"},[e._v(" 项目管理员 ")])},a=[],s={name:"ProjectAdmin"},r=s,i=t("2877"),u=Object(i["a"])(r,c,a,!1,null,"0bed5ceb",null);n["default"]=u.exports}}]);

@@ -1,1 +1,0 @@
-(window["webpackJsonp"]=window["webpackJsonp"]||[]).push([["chunk-2d23718f"],{fa53:function(e,n,s){"use strict";s.r(n);var t=function(){var e=this,n=e.$createElement,s=e._self._c||n;return s("div",{staticClass:"app-container user"},[e._v(" 安全评估 ")])},a=[],c={name:"SafetyAssessment"},r=c,u=s("2877"),i=Object(u["a"])(r,t,a,!1,null,"7b2b491f",null);n["default"]=i.exports}}]);

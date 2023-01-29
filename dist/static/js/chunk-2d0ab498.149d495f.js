@@ -1,1 +1,0 @@
-(window["webpackJsonp"]=window["webpackJsonp"]||[]).push([["chunk-2d0ab498"],{1542:function(e,n,a){"use strict";a.r(n);var t=function(){var e=this,n=e.$createElement,a=e._self._c||n;return a("div",{staticClass:"app-container user"},[e._v(" 事件管理 ")])},s=[],c={name:"EventManagement"},r=c,u=a("2877"),i=Object(u["a"])(r,t,s,!1,null,"2fe581ae",null);n["default"]=i.exports}}]);

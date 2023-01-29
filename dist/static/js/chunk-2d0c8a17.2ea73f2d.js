@@ -1,1 +1,0 @@
-(window["webpackJsonp"]=window["webpackJsonp"]||[]).push([["chunk-2d0c8a17"],{5666:function(n,e,a){"use strict";a.r(e);var t=function(){var n=this,e=n.$createElement,a=n._self._c||e;return a("div",{staticClass:"app-container user"},[n._v(" 安全生产 ")])},c=[],s={name:"SafeProduction"},r=s,u=a("2877"),i=Object(u["a"])(r,t,c,!1,null,"73ac1b5b",null);e["default"]=i.exports}}]);

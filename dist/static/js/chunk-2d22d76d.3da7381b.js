@@ -1,1 +1,0 @@
-(window["webpackJsonp"]=window["webpackJsonp"]||[]).push([["chunk-2d22d76d"],{f838:function(e,n,t){"use strict";t.r(n);var a=function(){var e=this,n=e.$createElement,t=e._self._c||n;return t("div",{staticClass:"app-container user"},[e._v(" 安全停运 ")])},c=[],s={name:"SafeDeactivation"},i=s,r=t("2877"),u=Object(r["a"])(i,a,c,!1,null,"19df1827",null);n["default"]=u.exports}}]);

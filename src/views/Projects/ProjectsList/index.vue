@@ -1,6 +1,6 @@
 <template>
   <div class="app-container user">
-    <div class="source demo-block">
+    <div v-if="$route.name==='ProjectsList'" class="source demo-block">
       <el-collapse accordion v-model="activeNames">
         <el-collapse-item name="1">
           <template slot="title">
@@ -104,6 +104,7 @@
         </el-collapse-item>
       </el-collapse>
     </div>
+    <router-view/>
   </div>
 </template>
 
