@@ -4,56 +4,91 @@
              :label-position="'left'"
              :rules="rules"
              ref="ruleForm"
-             label-width="200px"
+             label-width="220px"
              class="demo-ruleForm font-semibold">
-      <el-form-item label="1 Project TOE" prop="pass">
-        <el-input v-model="ruleForm.pass" placeholder="Please Input"></el-input>
-      </el-form-item>
-      <el-form-item label="2 TOE Level" prop="pass1">
-        <el-select v-model="ruleForm.pass1" placeholder="Please Select" class="w100">
-          <el-option
-            v-for="item in options"
-            :key="item.value"
-            :label="item.label"
-            :value="item.value">
-          </el-option>
-        </el-select>
-      </el-form-item>
-      <el-form-item label="3 Document Version" prop="pass2">
-        <el-input v-model="ruleForm.pass2"></el-input>
-      </el-form-item>
-      <el-form-item label="4 Status" prop="pass3">
-        <el-input v-model="ruleForm.pass3"></el-input>
-      </el-form-item>
-      <el-form-item label="5 Reviewer(s)" prop="pass4">
-        <el-input v-model="ruleForm.pass4"></el-input>
-      </el-form-item>
-      <el-form-item label="6 Author(s)" prop="pass5">
-        <el-input v-model="ruleForm.pass5"></el-input>
-      </el-form-item>
-      <el-form-item label="7 Author Department" prop="pass6">
-        <el-input v-model="ruleForm.pass6"></el-input>
-      </el-form-item>
-      <el-form-item label="8 Author company" prop="pass7">
-        <el-input v-model="ruleForm.pass7"></el-input>
-      </el-form-item>
-      <el-form-item label="9 Author phone num" prop="pass8">
-        <el-input v-model="ruleForm.pass8"></el-input>
-      </el-form-item>
-      <el-form-item label="10 Doucment Secrecy Level" prop="pass9">
-        <el-input v-model="ruleForm.pass9"></el-input>
-      </el-form-item>
-      <el-form-item prop="pass10">
-        <template slot="label">
-          <span>11 Objects</span>
-          <div class="-mt-1 text-xs text-gray-400">目标</div>
-        </template>
-        <el-input v-model.number="ruleForm.pass10"></el-input>
-      </el-form-item>
+      <el-row :gutter="24">
+          <el-col :span="8">
+            <el-form-item label="1 Project TOE" prop="pass">
+              <el-input v-model="ruleForm.pass" placeholder="Please Input"></el-input>
+            </el-form-item>
+          </el-col>
+        <el-col :span="8">
+          <el-form-item label="2 TOE Level" prop="pass1">
+            <el-select v-model="ruleForm.pass1" placeholder="Please Select" class="w100">
+              <el-option
+                v-for="item in options"
+                :key="item.value"
+                :label="item.label"
+                :value="item.value">
+              </el-option>
+            </el-select>
+          </el-form-item>
+        </el-col>
+        <el-col :span="8">
+          <el-form-item label="3 Document Version" prop="pass2">
+            <el-input v-model="ruleForm.pass2"></el-input>
+          </el-form-item>
+        </el-col>
+        <el-col :span="8">
+          <el-form-item label="4 Status" prop="pass3">
+            <el-input v-model="ruleForm.pass3"></el-input>
+          </el-form-item>
+        </el-col>
+        <el-col :span="8">
+          <el-form-item label="5 Reviewer(s)" prop="pass4">
+            <el-input v-model="ruleForm.pass4"></el-input>
+          </el-form-item>
+        </el-col>
+        <el-col :span="8">
+          <el-form-item label="6 Author(s)" prop="pass5">
+            <el-input v-model="ruleForm.pass5"></el-input>
+          </el-form-item>
+        </el-col>
+        <el-col :span="8">
+          <el-form-item label="7 Author Department" prop="pass6">
+            <el-input v-model="ruleForm.pass6"></el-input>
+          </el-form-item>
+        </el-col>
+        <el-col :span="8">
+          <el-form-item label="8 Author company" prop="pass7">
+            <el-input v-model="ruleForm.pass7"></el-input>
+          </el-form-item>
+        </el-col>
+        <el-col :span="8">
+          <el-form-item label="9 Author phone num" prop="pass8">
+            <el-input v-model="ruleForm.pass8"></el-input>
+          </el-form-item>
+        </el-col>
+        <el-col :span="8">
+          <el-form-item label="10 Doucment Secrecy Level" prop="pass9">
+            <el-input v-model="ruleForm.pass9"></el-input>
+          </el-form-item>
+        </el-col>
+        <el-col :span="8">
+          <el-form-item prop="pass10">
+            <template slot="label">
+              <span>11 Objects - 目标</span>
+            </template>
+            <el-input v-model.number="ruleForm.pass10"></el-input>
+          </el-form-item>
+        </el-col>
+        <el-col :span="8"></el-col>
+        <el-col :span="8"></el-col>
+        <el-col :span="8"></el-col>
+        <el-col :span="8"></el-col>
+        <el-col :span="8"></el-col>
+        <el-col :span="8"></el-col>
+        <el-col :span="8"></el-col>
+        <el-col :span="8"></el-col>
+        <el-col :span="8"></el-col>
+        <el-col :span="8"></el-col>
+        <el-col :span="8"></el-col>
+        <el-col :span="8"></el-col>
+        <el-col :span="8"></el-col>
+      </el-row>
       <el-form-item prop="pass11">
         <template slot="label">
-          <span>12 Inputs</span>
-          <div class="-mt-1 text-xs text-gray-400">输入信息</div>
+          <span>12 Inputs - 输入信息</span>
         </template>
         <el-input   type="textarea"  autosize v-model.number="ruleForm.pass11"></el-input>
       </el-form-item>
@@ -71,27 +106,24 @@
       </el-form-item>
       <el-form-item prop="pass12">
         <template slot="label">
-          <span>14 Outputs</span>
-          <div class="-mt-1 text-xs text-gray-400">工作输出</div>
+          <span>14 Outputs - 工作输出</span>
         </template>
         <el-input   type="textarea"  autosize v-model.number="ruleForm.pass12"></el-input>
       </el-form-item>
       <el-form-item prop="pass13">
         <template slot="label">
-          <span>15 Document History</span>
-          <div class="-mt-1 text-xs text-gray-400">文件历史</div>
+          <span>15 Document History - 文件历史</span>
         </template>
         <el-input   type="textarea"  autosize v-model.number="ruleForm.pass13"></el-input>
       </el-form-item>
       <el-form-item prop="pass14">
         <template slot="label">
-          <span>16 Todo List</span>
-          <div class="-mt-1 text-xs text-gray-400">任务清单</div>
+          <span>16 Todo List - 任务清单</span>
         </template>
         <el-input   type="textarea"  autosize v-model.number="ruleForm.pass14"></el-input>
       </el-form-item>
       <el-form-item>
-        <el-button type="primary" @click="submitForm('ruleForm')">提交</el-button>
+        <el-button type="primary" @click="submitForm('ruleForm')">Next Step</el-button>
 <!--        <el-button @click="resetForm('ruleForm')">重置</el-button>-->
       </el-form-item>
     </el-form>
@@ -101,6 +133,9 @@
 <script>
 export default {
   name: 'ProjectInformation',
+  props: {
+    changeActive:Function
+  },
   data() {
     return {
       fileList: [
@@ -153,8 +188,16 @@ export default {
       this.$refs[formName].validate((valid) => {
         if (valid) {
           console.log(this.ruleForm);
-          return '222';
+          this.changeActive('second')
+          document.documentElement.scrollTop = 0
+          return true;
         }
+        setTimeout(() => {
+          document.getElementsByClassName("is-error")[0].scrollIntoView({
+            behavior: "smooth",
+            block: "center"
+          });
+        }, 0);
         return false;
       });
     },

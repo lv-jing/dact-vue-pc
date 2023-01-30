@@ -1,12 +1,12 @@
 <template>
   <div class="app-container">
-    <el-tabs class="back-f" v-model="activeName" type="border-card" @tab-click="handleClick" lazy>
-      <el-tab-pane name="first" lazy>
+    <el-tabs class="back-f" v-model="activeName" type="border-card" @tab-click="handleClick">
+      <el-tab-pane name="first">
         <template slot="label">
           <div class="label-cont">Project Information</div>
           <small>项目信息</small>
         </template>
-        <ProjectInformation/>
+        <ProjectInformation :changeActive="changeActive"/>
       </el-tab-pane>
       <el-tab-pane name="second">
         <template slot="label">
@@ -123,16 +123,16 @@ export default {
   },
   data() {
     return {
-      activeName: 'first'
+      activeName: this.$route.query.active
     };
   },
-  created() {
-    this.activeName = sessionStorage.getItem('current_name');
-  },
   methods: {
+    changeActive(val){
+      this.activeName = val
+    },
     handleClick(tab) {
       this.resetSetItem('table_name', 'first')
-      sessionStorage.setItem('current_name', tab.name);
+      this.$router.push({ path: '/EditProject',query:{active:tab.name} });
     },
   },
 };
@@ -140,7 +140,7 @@ export default {
 
 <style lang="scss">
 .el-tabs__item{
-  height: auto;
+  height: auto!important;
 }
 .el-tabs__nav-next, .el-tabs__nav-prev{
   line-height: 80px;

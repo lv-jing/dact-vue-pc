@@ -29,6 +29,7 @@
       row-key="id"
       :data="tableData"
       :row-class-name="tableRowClassName"
+      :header-cell-style="{background:'#f0f9eb', color:'black'}"
       :tree-props="{children: 'children', hasChildren: 'hasChildren'}"
       style="width: 100%">
       <el-table-column prop="date" label="Attack"></el-table-column>

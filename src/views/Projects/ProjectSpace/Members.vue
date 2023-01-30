@@ -8,6 +8,7 @@
             :data="tableData"
             tooltip-effect="dark"
             style="width: 100%"
+            :header-cell-style="{background:'#f0f9eb', color:'black'}"
             @selection-change="handleSelectionChange">
             <el-table-column type="selection" width="55"></el-table-column>
             <el-table-column label="日期" ><template slot-scope="scope">{{ scope.row.date }}</template></el-table-column>
@@ -26,6 +27,7 @@
             :data="tableData"
             tooltip-effect="dark"
             style="width: 100%"
+            :header-cell-style="{background:'#f0f9eb', color:'black'}"
             @selection-change="handleSelectionChange">
             <el-table-column type="selection" width="55"></el-table-column>
             <el-table-column label="日期" ><template slot-scope="scope">{{ scope.row.date }}</template></el-table-column>

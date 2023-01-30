@@ -8,6 +8,7 @@
           </template>
           <el-table
             :data="tableData"
+            :header-cell-style="{background:'#f0f9eb', color:'black'}"
             style="width: 100%">
             <el-table-column prop="project_toe" label="Project TOE"></el-table-column>
             <el-table-column prop="document_class" label="TOE level"></el-table-column>
@@ -23,11 +24,9 @@
             </el-table-column>
             <el-table-column label="Option">
               <template>
-                <el-button
-                  size="mini">Edit</el-button>
-                <el-button
-                  size="mini"
-                  type="danger">Delete</el-button>
+                <el-button type="text" size="mini">Edit</el-button>
+                <el-button type="text" size="mini">Libraries</el-button>
+                <el-button  type="text" size="mini" >Copy</el-button>
               </template>
             </el-table-column>
           </el-table>
@@ -38,6 +37,7 @@
           </template>
           <el-table
             :data="tableData"
+            :header-cell-style="{background:'#f0f9eb', color:'black'}"
             style="width: 100%">
             <el-table-column prop="project_toe" label="Project TOE"></el-table-column>
             <el-table-column prop="document_class" label="TOE level"></el-table-column>
@@ -53,11 +53,9 @@
             </el-table-column>
             <el-table-column label="Option">
               <template>
-                <el-button
-                  size="mini">Edit</el-button>
-                <el-button
-                  size="mini"
-                  type="danger">Delete</el-button>
+                <el-button type="text" size="mini">Edit</el-button>
+                <el-button type="text" size="mini">Libraries</el-button>
+                <el-button  type="text" size="mini" >Copy</el-button>
               </template>
             </el-table-column>
           </el-table>
@@ -83,11 +81,9 @@
             </el-table-column>
             <el-table-column label="Option">
               <template>
-                <el-button
-                  size="mini">Edit</el-button>
-                <el-button
-                  size="mini"
-                  type="danger">Delete</el-button>
+                <el-button type="text" size="mini">Edit</el-button>
+                <el-button type="text" size="mini">Libraries</el-button>
+                <el-button  type="text" size="mini" >Copy</el-button>
               </template>
             </el-table-column>
           </el-table>
@@ -113,11 +109,9 @@
             </el-table-column>
             <el-table-column label="Option">
               <template>
-                <el-button
-                  size="mini">Edit</el-button>
-                <el-button
-                  size="mini"
-                  type="danger">Delete</el-button>
+                <el-button type="text" size="mini">Edit</el-button>
+                <el-button type="text" size="mini">Libraries</el-button>
+                <el-button  type="text" size="mini" >Copy</el-button>
               </template>
             </el-table-column>
           </el-table>
@@ -148,8 +142,7 @@ export default {
   },
   methods: {
     handleGoto() {
-      sessionStorage.setItem('current_name', 'first');
-      this.$router.push({ name: 'EditProject' });
+      this.$router.push({ path: '/EditProject',query:{active:'first'} });
     },
   },
 };

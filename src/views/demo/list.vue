@@ -1,5 +1,18 @@
 <template>
   <div>
+    <div class="el-table-search">
+      <el-form :inline="true" :model="queryParams" class="demo-form-inline">
+        <el-form-item label="Enterprise Abbr">
+          <el-input v-model="queryParams.user" placeholder="请输入"></el-input>
+        </el-form-item>
+        <el-form-item label="Vehicle">
+          <el-input v-model="queryParams.region" placeholder="请输入"></el-input>
+        </el-form-item>
+        <el-form-item>
+          <el-button type="primary" @click="onSubmit">查询</el-button>
+        </el-form-item>
+      </el-form>
+    </div>
     <div class="el-table-content">
       <el-table
         :data="tableData"
@@ -62,6 +75,11 @@ export default {
   name: "SecurityPlanning",
   data() {
     return {
+      ruleForm: {
+        enterprise_id: '',
+        vehicle_name: '',
+        address: ''
+      },
       total: 20,
       queryParams: {
         pageNum: 1,

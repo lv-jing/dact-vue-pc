@@ -13,8 +13,8 @@
     </el-form>
     <el-table
       :data="tableData"
-      border
       :key="activeName"
+      :header-cell-style="{background:'#f0f9eb', color:'black'}"
       style="width: 100%; margin-top: 20px">
       <el-table-column prop="id" label="Component"></el-table-column>
       <el-table-column prop="name" label="Requirement ID"></el-table-column>

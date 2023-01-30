@@ -26,6 +26,7 @@
     <el-table
       border
       :data="tableData"
+      :header-cell-style="{background:'#f0f9eb', color:'black'}"
       style="width: 100%">
       <el-table-column prop="date" label="Attack"></el-table-column>
       <el-table-column prop="name" label="Sub_Attack"></el-table-column>

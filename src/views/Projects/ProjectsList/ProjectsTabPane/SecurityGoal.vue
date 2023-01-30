@@ -14,7 +14,7 @@
     <el-table
       :data="tableData"
       :key="activeName"
-      border
+      :header-cell-style="{background:'#f0f9eb', color:'black'}"
       style="width: 100%; margin-top: 20px">
       <el-table-column prop="id" label="Goal ID"></el-table-column>
       <el-table-column prop="name" label="Goal Content"></el-table-column>

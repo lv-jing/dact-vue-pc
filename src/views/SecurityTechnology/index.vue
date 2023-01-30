@@ -1,6 +1,6 @@
 <template>
   <div class="app-container user">
-    二级菜单
+    网络安全技术资产管理
   </div>
 </template>
 

@@ -4,19 +4,17 @@
              :label-position="'left'"
              :rules="rules"
              ref="ruleForm"
-             label-width="250px"
+             label-width="304px"
              class="demo-ruleForm font-semibold">
       <el-form-item prop="pass">
         <template slot="label">
-          <span>2 System Overview</span>
-          <div class="-mt-1 text-xs text-gray-400">系统概述</div>
+          <span>2 System Overview - 系统概述</span>
         </template>
         <el-input type="textarea" autosize v-model="ruleForm.pass" placeholder="Please Input"></el-input>
       </el-form-item>
       <el-form-item prop="pass1">
         <template slot="label">
-          <span>2.1 System Information</span>
-          <div class="-mt-1 text-xs text-gray-400">系统信息</div>
+          <span>2.1 System Information - 系统信息</span>
         </template>
         <el-input type="textarea" autosize v-model.number="ruleForm.pass1" placeholder="Please Input"></el-input>
       </el-form-item>
@@ -33,8 +31,7 @@
       </el-form-item>
       <el-form-item prop="pass2">
         <template slot="label">
-          <span>2.2 Functions</span>
-          <div class="-mt-1 text-xs text-gray-400">功能描述</div>
+          <span>2.2 Functions - 功能描述</span>
         </template>
         <el-input type="textarea" autosize v-model.number="ruleForm.pass2" placeholder="Please Input"></el-input>
       </el-form-item>
@@ -51,8 +48,7 @@
       </el-form-item>
       <el-form-item prop="pass3">
         <template slot="label">
-          <span>2.3 Network Topology</span>
-          <div class="-mt-1 text-xs text-gray-400">网络拓扑架构</div>
+          <span>2.3 Network Topology - 网络拓扑架构</span>
         </template>
         <el-input type="textarea" autosize v-model.number="ruleForm.pass3" placeholder="Please Input"></el-input>
       </el-form-item>
@@ -69,8 +65,7 @@
       </el-form-item>
       <el-form-item prop="pass4">
         <template slot="label">
-          <span>2.4 Operational Environment</span>
-          <div class="-mt-1 text-xs text-gray-400">运行环境</div>
+          <span>2.4 Operational Environment - 运行环境</span>
         </template>
         <el-input type="textarea" autosize v-model.number="ruleForm.pass4" placeholder="Please Input"></el-input>
       </el-form-item>
@@ -87,10 +82,10 @@
       </el-form-item>
       <el-form-item prop="pass5">
         <template slot="label">
-          <span>2.5 Exisiting Security Measures</span>
-          <div class="-mt-1 text-xs text-gray-400">现有安全措施</div>
+          <span>2.5 Exisiting Security Measures - 现有安全措施</span>
+          <div class="-mt-1 text-xs text-gray-400"></div>
         </template>
-        <el-select v-model="ruleForm.pass5" placeholder="Please Select" multiple class="w100">
+        <el-select filterable allow-create v-model="ruleForm.pass5" placeholder="Please Select" multiple class="w100">
           <el-option
             v-for="item in options"
             :key="item.value"
@@ -101,10 +96,11 @@
       </el-form-item>
       <el-form-item prop="pass6">
         <template slot="label">
-          <span>2.6 Assumptions</span>
-          <div class="-mt-1 text-xs text-gray-400">假设</div>
+          <span>2.6 Assumptions - 假设</span>
+          <div class="-mt-1 text-xs text-gray-400"></div>
         </template>
-        <el-select v-model="ruleForm.pass6" placeholder="Please Select" multiple class="w100">
+        <el-select filterable allow-create default-first-option v-model="ruleForm.pass6" placeholder="Please Select"
+                   multiple class="w100">
           <el-option
             v-for="item in options"
             :key="item.value"
@@ -115,10 +111,10 @@
       </el-form-item>
       <el-form-item prop="pass7">
         <template slot="label">
-          <span>2.6 Constraints</span>
-          <div class="-mt-1 text-xs text-gray-400">约束</div>
+          <span>2.6 Constraints - 约束</span>
         </template>
-        <el-select v-model="ruleForm.pass7" placeholder="Please Select" multiple class="w100">
+        <el-select filterable allow-create default-first-option v-model="ruleForm.pass7" placeholder="Please Select"
+                   multiple class="w100">
           <el-option
             v-for="item in options"
             :key="item.value"
@@ -129,10 +125,10 @@
       </el-form-item>
       <el-form-item prop="pass8">
         <template slot="label">
-          <span>2.6 Components</span>
-          <div class="-mt-1 text-xs text-gray-400">组件</div>
+          <span>2.6 Components - 组件</span>
         </template>
-        <el-select v-model="ruleForm.pass8" placeholder="Please Select" multiple class="w100">
+        <el-select filterable allow-create default-first-option v-model="ruleForm.pass8" placeholder="Please Select"
+                   multiple class="w100">
           <el-option
             v-for="item in options"
             :key="item.value"
@@ -143,10 +139,10 @@
       </el-form-item>
       <el-form-item prop="pass9">
         <template slot="label">
-          <span>2.6 Sub-Systems</span>
-          <div class="-mt-1 text-xs text-gray-400">子系统</div>
+          <span>2.6 Sub-Systems - 子系统</span>
         </template>
-        <el-select v-model="ruleForm.pass9" placeholder="Please Select" multiple class="w100" clearable >
+        <el-select filterable allow-create default-first-option v-model="ruleForm.pass9" placeholder="Please Select"
+                   multiple class="w100" clearable>
           <el-option
             v-for="item in options"
             :key="item.value"
@@ -156,8 +152,7 @@
         </el-select>
       </el-form-item>
       <el-form-item>
-        <el-button type="primary" @click="submitForm('ruleForm')">提交</el-button>
-<!--        <el-button @click="resetForm('ruleForm')">重置</el-button>-->
+        <el-button type="primary" @click="submitForm('ruleForm')">Next Step</el-button>
       </el-form-item>
     </el-form>
   </div>
@@ -171,18 +166,19 @@ export default {
       fileList: [],
       ruleForm: {
         pass: '',
+        pass1: '',
         checkPass: '',
         age: '',
       },
       rules: {
         pass: [
-          { required: true, message: '请输入', trigger: 'change' },
+          {required: true, message: '请输入', trigger: 'change'},
         ],
         checkPass: [
-          { required: true, message: '请输入', trigger: 'change' },
+          {required: true, message: '请输入', trigger: 'change'},
         ],
         age: [
-          { required: true, message: '请输入', trigger: 'change' },
+          {required: true, message: '请输入', trigger: 'change'},
         ],
       },
       options: [{

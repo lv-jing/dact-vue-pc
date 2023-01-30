@@ -21,6 +21,7 @@
           :data="tableData"
           highlight-current-row
           @row-click="rowClick"
+          :header-cell-style="{background:'#f0f9eb', color:'black'}"
           style="width: 100%">
           <el-table-column prop="enterprise" label="Enterprise"></el-table-column>
           <el-table-column prop="enterprise_short" label="Enterprise Abbr"></el-table-column>

@@ -4,6 +4,7 @@
         <el-table
           :data="tableData"
           highlight-current-row
+          :header-cell-style="{background:'#f0f9eb', color:'black'}"
           style="width: 100%">
           <el-table-column prop="project_toe" label="Project TOE"></el-table-column>
           <el-table-column prop="document_class" label="TOE level"></el-table-column>

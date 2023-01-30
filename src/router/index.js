@@ -148,83 +148,7 @@ export const constantRoutes = [
             ]
           } ,
           {
-            path: 'ProjectProcess',
-            component:ParentView,
-            name: 'ProjectProcess',
-            redirect: 'noRedirect',
-            meta: { title: '项目流程管理' },
-            alwaysShow:true,
-            children: [
-              {
-                path: 'SecurityPlanning',
-                component: () => import('@/views/ProjectProcess/SecurityPlanning'),
-                name: 'SecurityPlanning',
-                meta: { title: '安全规化' },
-              },
-              {
-                path: 'SafetyAnalysis',
-                component: () => import('@/views/ProjectProcess/SafetyAnalysis'),
-                name: 'SafetyAnalysis',
-                meta: { title: '安全分析' },
-              },
-              {
-                path: 'SafetyDesign',
-                component: () => import('@/views/ProjectProcess/SafetyDesign'),
-                name: 'SafetyDesign',
-                meta: { title: '安全设计' },
-              },
-              {
-                path: 'SecurityImplementation',
-                component: () => import('@/views/ProjectProcess/SecurityImplementation'),
-                name: 'SecurityImplementation',
-                meta: { title: '安全实施' },
-              },
-              {
-                path: 'SecurityVerification',
-                component: () => import('@/views/ProjectProcess/SecurityVerification'),
-                name: 'SecurityVerification',
-                meta: { title: '安全验证' },
-              },
-              {
-                path: 'SafetyConfirmation',
-                component: () => import('@/views/ProjectProcess/SafetyConfirmation'),
-                name: 'SafetyConfirmation',
-                meta: { title: '安全确认' },
-              },
-              {
-                path: 'SafetyAssessment',
-                component: () => import('@/views/ProjectProcess/SafetyAssessment'),
-                name: 'SafetyAssessment',
-                meta: { title: '安全评估' },
-              },
-              {
-                path: 'SafeRelease',
-                component: () => import('@/views/ProjectProcess/SafeRelease'),
-                name: 'SafeRelease',
-                meta: { title: '安全放行' },
-              },
-              {
-                path: 'SafeProduction',
-                component: () => import('@/views/ProjectProcess/SafeProduction'),
-                name: 'SafeProduction',
-                meta: { title: '安全生产' },
-              },
-              {
-                path: 'Safe0peration',
-                component: () => import('@/views/ProjectProcess/Safe0peration'),
-                name: 'Safe0peration',
-                meta: { title: '安全运维' },
-              },
-              {
-                path: 'SafeDeactivation',
-                component: () => import('@/views/ProjectProcess/SafeDeactivation'),
-                name: 'SafeDeactivation',
-                meta: { title: '安全停运' },
-              },
-            ]
-          } ,
-          {
-            path: 'ProjectProces',
+            path: '/ProjectProces',
             component: () => import('@/views/ProjectProcess/index'),
             name: 'ProjectProces',
             meta: { title: '项目流程管理' },
@@ -236,11 +160,11 @@ export const constantRoutes = [
             component: () => import('@/views/Projects/ProjectsList/index'),
             children:[
               {
-                path: 'EditProject',
+                path: '/EditProject',
                 hidden:true,
                 component: () => import('@/views/Projects/ProjectsList/EditProject'),
                 name: 'EditProject',
-                meta: { title: '项目管理'},
+                meta: { title: '项目管理',noCache:true},
               } ,
             ]
           },
@@ -331,6 +255,19 @@ export const constantRoutes = [
         component: () => import('@/views/ToolConfiguration/index'),
         name: 'ToolConfiguration',
         meta: { title: '工具配置管理', icon: 'system', affix: true }
+      }
+    ]
+  },
+  {
+    path: '/SecurityTechnology',
+    component: Layout,
+    redirect: 'SecurityTechnology',
+    children: [
+      {
+        path: 'SecurityTechnology',
+        component: () => import('@/views/SecurityTechnology/index'),
+        name: 'index',
+        meta: { title: '网络安全技术资产管理', icon: 'system', affix: true }
       }
     ]
   },

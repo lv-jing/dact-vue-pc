@@ -14,7 +14,7 @@
     <el-table
       :data="tableData"
       :key="activeName"
-      border
+      :header-cell-style="{background:'#f0f9eb', color:'black'}"
       style="width: 100%; margin-top: 20px">
       <el-table-column prop="id" label="Threat_Name" width="150px"></el-table-column>
       <el-table-column prop="name" label="Attack_L1_Name" width="150px"></el-table-column>
