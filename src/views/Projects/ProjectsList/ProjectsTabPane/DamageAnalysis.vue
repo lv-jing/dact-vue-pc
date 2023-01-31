@@ -1,5 +1,6 @@
 <template>
 <div>
+  <h4 class="mb-2">身份和配置类资产</h4>
   <el-table
     :data="tableData"
     :key="activeName"
@@ -14,7 +15,7 @@
     </el-table-column>
     <el-table-column prop="amount2" label="Safety">
       <template slot-scope="scope">
-        <el-select v-model="scope.row.amount2" placeholder="请选择">
+        <el-select clearable v-model="scope.row.amount2" placeholder="请选择">
           <el-option
             v-for="item in options"
             :key="item.value"
@@ -26,7 +27,7 @@
     </el-table-column>
     <el-table-column prop="amount3" label="Financial">
       <template slot-scope="scope">
-        <el-select v-model="scope.row.amount2" placeholder="请选择">
+        <el-select clearable v-model="scope.row.amount2" placeholder="请选择">
           <el-option
             v-for="item in options"
             :key="item.value"
@@ -38,7 +39,7 @@
     </el-table-column>
     <el-table-column prop="amount3" label="Privacy">
       <template slot-scope="scope">
-        <el-select v-model="scope.row.amount2" placeholder="请选择">
+        <el-select clearable v-model="scope.row.amount2" placeholder="请选择">
           <el-option
             v-for="item in options"
             :key="item.value"
@@ -50,7 +51,7 @@
     </el-table-column>
     <el-table-column prop="amount3" label="Operational">
       <template slot-scope="scope">
-        <el-select v-model="scope.row.amount2" placeholder="请选择">
+        <el-select clearable v-model="scope.row.amount2" placeholder="请选择">
           <el-option
             v-for="item in options"
             :key="item.value"
@@ -62,13 +63,26 @@
     </el-table-column>
     <el-table-column prop="amount3" label="Impact Rating"></el-table-column>
   </el-table>
+  <el-divider/>
+  <div class="form-footer-but">
+    <div>
+      <el-button @click="prevStep">Prev Step</el-button>
+      <el-button type="primary" @click="nextStep">Next Step</el-button>
+    </div>
+    <div>
+      <el-button type="primary" @click="update">Update</el-button>
+    </div>
+  </div>
 </div>
 </template>
 
 <script>
 export default {
   name: 'DamageAnalysis',
-  props: ['activeName'],
+  props: {
+    activeName:String,
+    changeActive:Function
+  },
   data() {
     return {
       options: [{
@@ -117,7 +131,19 @@ export default {
       }],
     };
   },
-  methods: {},
+  methods: {
+    update(){
+      console.log(this.tableData);
+    },
+    prevStep(){
+      this.changeActive('third')
+      document.documentElement.scrollTop = 0
+    },
+    nextStep() {
+      this.changeActive('fifth')
+      document.documentElement.scrollTop = 0
+    }
+  },
 };
 </script>
 

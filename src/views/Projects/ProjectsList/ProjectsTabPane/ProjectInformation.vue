@@ -72,19 +72,6 @@
             <el-input v-model.number="ruleForm.pass10"></el-input>
           </el-form-item>
         </el-col>
-        <el-col :span="8"></el-col>
-        <el-col :span="8"></el-col>
-        <el-col :span="8"></el-col>
-        <el-col :span="8"></el-col>
-        <el-col :span="8"></el-col>
-        <el-col :span="8"></el-col>
-        <el-col :span="8"></el-col>
-        <el-col :span="8"></el-col>
-        <el-col :span="8"></el-col>
-        <el-col :span="8"></el-col>
-        <el-col :span="8"></el-col>
-        <el-col :span="8"></el-col>
-        <el-col :span="8"></el-col>
       </el-row>
       <el-form-item prop="pass11">
         <template slot="label">
@@ -122,10 +109,9 @@
         </template>
         <el-input   type="textarea"  autosize v-model.number="ruleForm.pass14"></el-input>
       </el-form-item>
+      <el-divider/>
       <div class="form-footer-but">
-        <div>
           <el-button type="primary" @click="submitForm('ruleForm')">Next Step</el-button>
-        </div>
       </div>
     </el-form>
   </div>

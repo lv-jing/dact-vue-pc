@@ -21,6 +21,9 @@
       </el-form-item>
       <el-form-item>
         <el-button type="primary" @click="onSubmit">查询</el-button>
+        <el-button type="primary" @click="onSubmit">规则检查</el-button>
+        <el-button type="primary" @click="onSubmit">生成trees</el-button>
+        <el-button type="primary" @click="handleAdd">Add</el-button>
       </el-form-item>
     </el-form>
     <el-table
@@ -72,6 +75,9 @@ export default {
     onSubmit() {
       console.log('submit!');
     },
+    handleAdd(){
+
+    }
   },
 };
 </script>

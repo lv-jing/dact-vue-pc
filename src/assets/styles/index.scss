@@ -5,7 +5,7 @@
 @import './sidebar.scss';
 @import './btn.scss';
 
-body {
+body, {
   height: 100%;
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
@@ -17,7 +17,9 @@ html {
   height: 100%;
   box-sizing: border-box;
 }
-
+button, input, select, textarea{
+  font-family: inherit;
+}
 #app {
   height: 100%;
 }

@@ -11,11 +11,11 @@ import App from './App'
 import store from './store'
 import router from './router'
 import plugins from './plugins' // plugins
-import { download } from '@/utils/request'
+import {download} from '@/utils/request'
 
 import './assets/icons' // icon
 import './permission' // permission control
-import { isErrorPosition,resetSetItem } from "@/utils/common";
+import {isErrorPosition, resetSetItem, resetForm} from "@/utils/common";
 // 分页组件
 import Pagination from "@/components/Pagination";
 // 自定义表格工具组件
@@ -36,6 +36,7 @@ import VueMeta from 'vue-meta'
 // 全局方法挂载
 Vue.prototype.isErrorPosition = isErrorPosition
 Vue.prototype.resetSetItem = resetSetItem
+Vue.prototype.resetForm = resetForm
 Vue.prototype.download = download
 
 // 全局组件挂载
@@ -60,7 +61,7 @@ Vue.use(VueMeta)
  */
 
 Vue.use(Element, {
-  size: Cookies.get('size') || 'medium' // set element-ui default size
+  size: Cookies.get('size') || 'small' // set element-ui default size
 })
 
 Vue.config.productionTip = false

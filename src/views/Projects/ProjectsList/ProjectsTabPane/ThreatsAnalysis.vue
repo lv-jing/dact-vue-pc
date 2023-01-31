@@ -1,5 +1,4 @@
 <template>
-
   <div>
     <el-tabs v-model="activeTable" @tab-click="handleClick">
       <el-tab-pane label="LEVEL-5" name="first"></el-tab-pane>

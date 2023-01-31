@@ -18,13 +18,13 @@
         <template slot="label">
           <div>Asset Identification<br><small>资产识别</small></div>
         </template>
-        <AssetIdentification :activeName="activeName"/>
+        <AssetIdentification :activeName="activeName" :changeActive="changeActive"/>
       </el-tab-pane>
       <el-tab-pane name="fourth">
         <template slot="label">
           <div>Damage analysis<br><small>危害分析</small></div>
         </template>
-        <DamageAnalysis :activeName="activeName"/>
+        <DamageAnalysis :activeName="activeName"  :changeActive="changeActive"/>
       </el-tab-pane>
       <el-tab-pane name="fifth">
         <template slot="label">

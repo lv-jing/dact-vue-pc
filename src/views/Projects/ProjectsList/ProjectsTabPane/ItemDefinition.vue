@@ -68,6 +68,7 @@
           <span>2.4 Operational Environment - 运行环境</span>
         </template>
         <el-input type="textarea" autosize v-model.number="ruleForm.pass4" placeholder="Please Input"></el-input>
+        <el-input autosize v-model.number="ruleForm.pass4" placeholder="Please Input"></el-input>
       </el-form-item>
       <el-form-item>
         <el-upload
@@ -151,6 +152,7 @@
           </el-option>
         </el-select>
       </el-form-item>
+      <el-divider/>
       <div class="form-footer-but">
         <div>
           <el-button @click="prevStep">Prev Step</el-button>
