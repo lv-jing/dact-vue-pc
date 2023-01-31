@@ -122,10 +122,11 @@
         </template>
         <el-input   type="textarea"  autosize v-model.number="ruleForm.pass14"></el-input>
       </el-form-item>
-      <el-form-item>
-        <el-button type="primary" @click="submitForm('ruleForm')">Next Step</el-button>
-<!--        <el-button @click="resetForm('ruleForm')">重置</el-button>-->
-      </el-form-item>
+      <div class="form-footer-but">
+        <div>
+          <el-button type="primary" @click="submitForm('ruleForm')">Next Step</el-button>
+        </div>
+      </div>
     </el-form>
   </div>
 </template>
@@ -192,12 +193,7 @@ export default {
           document.documentElement.scrollTop = 0
           return true;
         }
-        setTimeout(() => {
-          document.getElementsByClassName("is-error")[0].scrollIntoView({
-            behavior: "smooth",
-            block: "center"
-          });
-        }, 0);
+        this.isErrorPosition()
         return false;
       });
     },

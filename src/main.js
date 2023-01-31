@@ -15,7 +15,7 @@ import { download } from '@/utils/request'
 
 import './assets/icons' // icon
 import './permission' // permission control
-import { parseTime, resetForm, addDateRange, selectDictLabel, selectDictLabels, handleTree } from "@/utils/ruoyi";
+import { isErrorPosition,resetSetItem } from "@/utils/common";
 // 分页组件
 import Pagination from "@/components/Pagination";
 // 自定义表格工具组件
@@ -33,30 +33,10 @@ import DictTag from '@/components/DictTag'
 // 头部标签组件
 import VueMeta from 'vue-meta'
 
-Vue.prototype.resetSetItem = function (key, newVal) {
-  if (key) {
-    // 创建一个StorageEvent事件
-    var newStorageEvent = document.createEvent('StorageEvent')
-    const storage = {
-      setItem: function (k, val) {
-        sessionStorage.setItem(k, val)
-        // 初始化创建的事件
-        newStorageEvent.initStorageEvent('setItem', false, false, k, null, val, null, null)
-        // 派发对象
-        window.dispatchEvent(newStorageEvent)
-      }
-    }
-    return storage.setItem(key, newVal)
-  }
-}
 // 全局方法挂载
-Vue.prototype.parseTime = parseTime
-Vue.prototype.resetForm = resetForm
-Vue.prototype.addDateRange = addDateRange
-Vue.prototype.selectDictLabel = selectDictLabel
-Vue.prototype.selectDictLabels = selectDictLabels
+Vue.prototype.isErrorPosition = isErrorPosition
+Vue.prototype.resetSetItem = resetSetItem
 Vue.prototype.download = download
-Vue.prototype.handleTree = handleTree
 
 // 全局组件挂载
 Vue.component('DictTag', DictTag)

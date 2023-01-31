@@ -151,9 +151,12 @@
           </el-option>
         </el-select>
       </el-form-item>
-      <el-form-item>
-        <el-button type="primary" @click="submitForm('ruleForm')">Next Step</el-button>
-      </el-form-item>
+      <div class="form-footer-but">
+        <div>
+          <el-button @click="prevStep">Prev Step</el-button>
+          <el-button type="primary" @click="submitForm('ruleForm')">Next Step</el-button>
+        </div>
+      </div>
     </el-form>
   </div>
 </template>
@@ -161,6 +164,9 @@
 <script>
 export default {
   name: 'ItemDefinition',
+  props: {
+    changeActive:Function
+  },
   data() {
     return {
       fileList: [],
@@ -207,6 +213,7 @@ export default {
           console.log(this.ruleForm);
           return '222';
         }
+        this.isErrorPosition()
         return false;
       });
     },
@@ -219,6 +226,10 @@ export default {
     handlePreview(file) {
       console.log(file);
     },
+    prevStep(){
+      this.changeActive('first')
+      document.documentElement.scrollTop = 0
+    }
   },
 };
 </script>

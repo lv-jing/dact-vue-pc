@@ -194,6 +194,14 @@ aside {
   background: #fff;
   padding: 24px;
 }
+.form-footer-but{
+  display: flex;
+  justify-content: space-between;
+  justify-items: center;
+}
+.flex{
+  display: flex;
+}
 .w100{
   width: 100%;
 }

@@ -12,7 +12,7 @@
         <template slot="label">
           <div>Item Definition<br><small>对象定义</small></div>
         </template>
-        <ItemDefinition/>
+        <ItemDefinition :changeActive="changeActive"/>
       </el-tab-pane>
       <el-tab-pane name="third">
         <template slot="label">

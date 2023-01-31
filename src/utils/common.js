@@ -237,3 +237,34 @@ export async function blobValidate(data) {
     return true;
   }
 }
+/*
+*  form 表单提交跳到第一个校验错误位置
+* */
+export function isErrorPosition (){
+  setTimeout(() => {
+    document.getElementsByClassName("is-error")[0].scrollIntoView({
+      behavior: "smooth",
+      block: "center"
+    });
+  }, 0);
+}
+
+/*
+* 创建缓存 sessionStorage
+* */
+export function resetSetItem(key, newVal){
+  if (key) {
+    // 创建一个StorageEvent事件
+    var newStorageEvent = document.createEvent('StorageEvent')
+    const storage = {
+      setItem: function (k, val) {
+        sessionStorage.setItem(k, val)
+        // 初始化创建的事件
+        newStorageEvent.initStorageEvent('setItem', false, false, k, null, val, null, null)
+        // 派发对象
+        window.dispatchEvent(newStorageEvent)
+      }
+    }
+    return storage.setItem(key, newVal)
+  }
+}
