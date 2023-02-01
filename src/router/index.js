@@ -109,68 +109,58 @@ export const constantRoutes = [
     name:'networkSecurity',
     meta: { title: '项目网络安全管理', icon: 'documentation' },
     redirect: 'noRedirect',
-    children: [
+    children:[
       {
-        path: 'ProjectSpace',
-        name: 'ProjectSpace',
+        path: 'list',
+        name: 'list',
         meta: { title: '项目空间管理'},
-        component: ParentView,
-        redirect: 'noRedirect',
-        alwaysShow:true,
+        component: () => import('@/views/Projects/ProjectSpace/index'),
         children:[
           {
-            path: 'list',
-            name: 'list',
-            meta: { title: '项目空间列表'},
-            component: () => import('@/views/Projects/ProjectSpace/index'),
-            children:[
-              {
-                path: '/ProjectList',
-                component: () => import('@/views/Projects/ProjectSpace/ProjectList'),
-                name: 'ProjectList',
-                hidden:true,
-                meta: { title: 'Project list' ,activeMenu:'/networkSecurity/ProjectSpace/list'},
-              } ,
-              {
-                path: '/Members',
-                component: () => import('@/views/Projects/ProjectSpace/Members'),
-                name: 'Members',
-                hidden:true,
-                meta: { title: 'Members' ,activeMenu:'/networkSecurity/ProjectSpace/list'},
-              } ,
-              {
-                path: '/Libraries',
-                component: () => import('@/views/Projects/ProjectSpace/Libraries'),
-                name: 'Libraries',
-                hidden:true,
-                meta: { title: 'Libraries' ,activeMenu:'/networkSecurity/ProjectSpace/list'},
-              } ,
-            ]
+            path: '/ProjectList',
+            component: () => import('@/views/Projects/ProjectSpace/ProjectList'),
+            name: 'ProjectList',
+            hidden:true,
+            meta: { title: 'Project list' ,activeMenu:'/networkSecurity/list'},
           } ,
           {
-            path: '/ProjectProces',
-            component: () => import('@/views/ProjectProcess/index'),
-            name: 'ProjectProces',
-            meta: { title: '项目流程管理' },
+            path: '/Members',
+            component: () => import('@/views/Projects/ProjectSpace/Members'),
+            name: 'Members',
+            hidden:true,
+            meta: { title: 'Members' ,activeMenu:'/networkSecurity/list'},
           } ,
           {
-            path: 'ProjectsList',
-            name: 'ProjectsList',
-            meta: { title: '项目工程管理'},
-            component: () => import('@/views/Projects/ProjectsList/index'),
-            children:[
-              {
-                path: '/EditProject',
-                hidden:true,
-                component: () => import('@/views/Projects/ProjectsList/EditProject'),
-                name: 'EditProject',
-                meta: { title: '项目管理',noCache:true},
-              } ,
-            ]
-          },
-
+            path: '/Libraries',
+            component: () => import('@/views/Projects/ProjectSpace/Libraries'),
+            name: 'Libraries',
+            hidden:true,
+            meta: { title: 'Libraries' ,activeMenu:'/networkSecurity/list'},
+          } ,
         ]
-      }
+      } ,
+      {
+        path: '/ProjectProces',
+        component: () => import('@/views/ProjectProcess/index'),
+        name: 'ProjectProces',
+        meta: { title: '项目流程管理' },
+      } ,
+      {
+        path: 'ProjectsList',
+        name: 'ProjectsList',
+        meta: { title: '项目工程管理'},
+        component: () => import('@/views/Projects/ProjectsList/index'),
+        children:[
+          {
+            path: '/EditProject',
+            hidden:true,
+            component: () => import('@/views/Projects/ProjectsList/EditProject'),
+            name: 'EditProject',
+            meta: { title: '项目管理',activeMenu:'/networkSecurity/ProjectsList'},
+          } ,
+        ]
+      },
+
     ]
   },
   {

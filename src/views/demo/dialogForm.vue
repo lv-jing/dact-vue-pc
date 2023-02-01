@@ -26,7 +26,11 @@ export default {
     return {
       dialogVisible: false,
       formData:{},
-      rules:{}
+      rules:{
+        pass: [
+          { required: true, message: '请输入', trigger: 'change' },
+        ],
+      }
     };
   },
   methods: {

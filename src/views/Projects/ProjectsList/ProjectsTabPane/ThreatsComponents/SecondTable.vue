@@ -56,7 +56,12 @@
 <script>
 export default {
   name: 'SecondTable',
-  props: ['tableData', 'activeName'],
+  props:{
+    handleDate:Function,
+    tableData:Array,
+    activeName:String,
+    activeTable:String
+  },
   data() {
     return {
       formInline: {
@@ -64,6 +69,9 @@ export default {
         region: '',
       },
     };
+  },
+  mounted() {
+    console.log(this.activeTable);
   },
   methods: {
     tableRowClassName({ row }) {
@@ -76,7 +84,7 @@ export default {
       console.log('submit!');
     },
     handleAdd(){
-
+      this.handleDate()
     }
   },
 };

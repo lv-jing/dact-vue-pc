@@ -75,7 +75,7 @@
       </el-tab-pane>
       <el-tab-pane name="thirteenth">
         <template slot="label">
-          <div>Intefration Verification<br><small>集成规则</small></div>
+          <div>Integration Verification<br><small>集成规则</small></div>
         </template>
         <SecurityClaim :activeName="activeName"/>
       </el-tab-pane>
