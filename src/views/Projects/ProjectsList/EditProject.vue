@@ -126,6 +126,9 @@ export default {
       activeName: this.$route.query.active
     };
   },
+  mounted() {
+    console.log(this.$route.query.active);
+  },
   methods: {
     changeActive(val){
       this.activeName = val

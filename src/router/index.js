@@ -140,10 +140,19 @@ export const constantRoutes = [
         ]
       } ,
       {
-        path: '/ProjectProces',
-        component: () => import('@/views/ProjectProcess/index'),
+        path: 'ProjectProces',
+        component: () => import('@/views/ProjectProcess/list'),
         name: 'ProjectProces',
         meta: { title: '项目流程管理' },
+        children:[
+          {
+            path: '/EditProjectProces',
+            hidden:true,
+            component: () => import('@/views/ProjectProcess/index'),
+            name: 'EditProjectProces',
+            meta: { title: '流程管理',activeMenu:'/networkSecurity/ProjectProces'},
+          } ,
+        ]
       } ,
       {
         path: 'ProjectsList',

@@ -8,6 +8,7 @@
       :key="activeName"
       :data="tableData"
       highlight-current-row
+      @row-click="rowClick"
       :header-cell-style="{background:'#f0f9eb', color:'black'}"
       style="width: 100%">
       <el-table-column prop="enterprise" label="评审文档名称"></el-table-column>
@@ -37,7 +38,6 @@
       @pagination="getList"
     />
     <el-dialog
-      :title="title"
       :visible.sync="visible"
       width="60%"
       :before-close="handleClose">
@@ -120,7 +120,6 @@ export default {
   props: ['activeName'],
   data() {
     return {
-      title: '',
       visible: false,
       total: 20,
       queryParams: {
@@ -158,6 +157,11 @@ export default {
     };
   },
   methods: {
+    // 点击行数据事件
+    rowClick(row, column, event){
+      this.visible = true
+      console.log(row, column, event);
+    },
     onSubmit() {
       console.log('submit!');
     },

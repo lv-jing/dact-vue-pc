@@ -118,7 +118,7 @@
         </el-collapse-item>
       </el-collapse>
     </div>
-    <router-view/>
+    <router-view v-else/>
   </div>
 </template>
 
