@@ -70,9 +70,6 @@ export default {
       },
     };
   },
-  mounted() {
-    console.log(this.activeTable);
-  },
   methods: {
     tableRowClassName({ row }) {
       if (row.children) {

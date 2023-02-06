@@ -170,7 +170,24 @@ export default {
       value: '',
     };
   },
+  watch: {
+    '$route': { // $route可以用引号，也可以不用引号
+      handler(to){
+        if(to.query.active==='first'){
+          this.initData()
+        }
+      },
+      deep: true, // 深度监听
+      immediate: true, // 第一次初始化渲染就可以监听到
+    }
+  },
+  mounted() {
+
+  },
   methods: {
+    initData(){
+
+    },
     submitForm(formName) {
       this.$refs[formName].validate((valid) => {
         if (valid) {

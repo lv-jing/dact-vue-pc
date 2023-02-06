@@ -12,13 +12,16 @@
     <div v-else>定时任务补偿222</div>
     <!--  tree 弹窗   -->
     <el-dialog
+      v-if="dialogVisible"
       :title="title"
       :visible.sync="dialogVisible"
       width="50%"
       :before-close="handleClose">
       <el-form :model="formData" ref="formData" :rules="rules" label-width="230px" class="demo-ruleForm">
         <el-form-item label="Attack Node Name" prop="name">
-          <el-input v-model.number="formData.name" placeholder="请输入Atk_L[层级]-[组件简称，多个下划线分割]-[任意字符] 示例：Atk-L1-FDR_RDA-Leakage"  autocomplete="off"></el-input>
+          <el-input v-model.number="formData.name"
+                    placeholder="请输入Atk_L[层级]-[组件简称，多个下划线分割]-[任意字符] 示例：Atk-L1-FDR_RDA-Leakage"
+                    autocomplete="off"></el-input>
         </el-form-item>
         <el-form-item v-if="activeTable==='fifth'" label="Asset with Property" prop="asset">
           <el-select
@@ -36,10 +39,12 @@
           </el-select>
         </el-form-item>
         <el-form-item v-if="activeTable==='fifth'" label="Threat Description" prop="threat_desc">
-          <el-input type="textarea"  autosize v-model.number="formData.threat_desc" placeholder="请输入威胁描述"  autocomplete="off"></el-input>
+          <el-input type="textarea" autosize v-model.number="formData.threat_desc" placeholder="请输入威胁描述"
+                    autocomplete="off"></el-input>
         </el-form-item>
         <el-form-item v-else label="Attack Description" prop="attack_description">
-          <el-input type="textarea"  autosize v-model.number="formData.attack_description" placeholder="请输入"  autocomplete="off"></el-input>
+          <el-input type="textarea" autosize v-model.number="formData.attack_description" placeholder="请输入"
+                    autocomplete="off"></el-input>
         </el-form-item>
         <el-form-item label="Attack Category" prop="attack_category">
           <el-select
@@ -57,21 +62,6 @@
           </el-select>
         </el-form-item>
         <template v-if="activeTable==='first'">
-          <el-form-item label="R155 Threat Reference" prop="threat_reference">
-            <el-select
-              class="w100"
-              v-model="formData.threat_reference"
-              multiple
-              filterable
-              placeholder="请选择">
-              <el-option
-                v-for="item in options"
-                :key="item.value"
-                :label="item.label"
-                :value="item.value">
-              </el-option>
-            </el-select>
-          </el-form-item>
           <el-form-item label="Cybersecurity Requirement" prop="requirement_content">
             <el-select
               class="w100"
@@ -100,6 +90,21 @@
               </el-option>
             </el-select>
           </el-form-item>
+          <el-form-item label="R155 Threat Reference" prop="threat_reference">
+            <el-select
+              class="w100"
+              v-model="formData.threat_reference"
+              multiple
+              filterable
+              placeholder="请选择">
+              <el-option
+                v-for="item in options"
+                :key="item.value"
+                :label="item.label"
+                :value="item.value">
+              </el-option>
+            </el-select>
+          </el-form-item>
           <el-form-item label="R155 Mitigration Reference" prop="mitigation_ref_regulation">
             <el-select
               class="w100"
@@ -115,13 +120,53 @@
               </el-option>
             </el-select>
           </el-form-item>
+          <el-form-item label="GB Threat Reference" prop="threat_reference_gb">
+            <el-select
+              class="w100"
+              v-model="formData.threat_reference_gb"
+              multiple
+              filterable
+              placeholder="请选择">
+              <el-option
+                v-for="item in options"
+                :key="item.value"
+                :label="item.label"
+                :value="item.value">
+              </el-option>
+            </el-select>
+          </el-form-item>
+          <el-form-item label="GB Mitigration Reference" prop="mitigation_ref_regulation_gb">
+            <el-select
+              class="w100"
+              v-model="formData.mitigation_ref_regulation_gb"
+              multiple
+              filterable
+              placeholder="请选择">
+              <el-option
+                v-for="item in options"
+                :key="item.value"
+                :label="item.label"
+                :value="item.value">
+              </el-option>
+            </el-select>
+          </el-form-item>
         </template>
-
       </el-form>
       <span slot="footer" class="dialog-footer">
-        <el-button @click="dialogVisible = false">取 消</el-button>
+        <el-button @click="handleClose">取 消</el-button>
         <el-button type="primary" @click="submitForm('formData')">确 定</el-button>
       </span>
+    </el-dialog>
+    <!--  L5新增后分数弹窗   -->
+    <el-dialog
+      title="提示"
+      :visible.sync="visible"
+      width="30%">
+      <span>这是一段信息</span>
+      <span slot="footer" class="dialog-footer">
+    <el-button @click="visible = false">取 消</el-button>
+    <el-button type="primary" @click="visible = false">确 定</el-button>
+  </span>
     </el-dialog>
   </div>
 
@@ -143,48 +188,50 @@ export default {
   data() {
     return {
       tableData: [],
-      activeTable: sessionStorage.getItem('table_name'),
+      activeTable: this.$route.query.level,
       dialogVisible: false,
+      visible: false,
       formData: {
-        name:'',
-        asset:'',
-        threat_desc:'',
-        attack_category:'',
-        attack_description:'',
-        namattack_categorye:'',
-        threat_reference:[],
-        requirement_content:'',
-        concept_brief:'',
-        mitigation_ref_regulation:[],
+        name: '',
+        asset: '',
+        threat_desc: '',
+        attack_category: '',
+        attack_description: '',
+        namattack_categorye: '',
+        requirement_content: '',
+        concept_brief: '',
+        threat_reference: [],
+        mitigation_ref_regulation: [],
+        threat_reference_gb: [],
+        mitigation_ref_regulation_gb: []
       },
       rules: {
         name: [
-          { required: true, message: '请输入', trigger: 'blur' },
-        ],
-        threat_reference: [
-          { required: true, message: '请选择', trigger: 'change' },
+          {required: true, message: '请输入', trigger: 'blur'},
         ],
         asset: [
-          { required: true, message: '请选择', trigger: 'change' },
+          {required: true, message: '请选择', trigger: 'blur'},
         ],
         requirement_content: [
-          { required: true, message: '请选择', trigger: 'change' },
+          {required: true, message: '请选择', trigger: 'blur'},
         ],
         concept_brief: [
-          { required: true, message: '请选择', trigger: 'change' },
+          {required: true, message: '请选择', trigger: 'blur'},
+        ],
+        threat_reference: [
+          {required: true, message: '请选择', trigger: 'blur'},
         ],
         mitigation_ref_regulation: [
-          { required: true, message: '请选择', trigger: 'change' },
+          {required: true, message: '请选择', trigger: 'blur'},
         ],
-
       },
-      title:'',
-      objs:{
-        first:'LEVEL-5',
-        second:'LEVEL-4',
-        third:'LEVEL-3',
-        fourth:'LEVEL-2',
-        fifth:'LEVEL-1',
+      title: '',
+      objs: {
+        first: 'LEVEL-5',
+        second: 'LEVEL-4',
+        third: 'LEVEL-3',
+        fourth: 'LEVEL-2',
+        fifth: 'LEVEL-1',
       },
       options: [{
         value: 'HTML',
@@ -198,23 +245,17 @@ export default {
       }],
     };
   },
-  created() {
-    window.addEventListener('setItem', () => {
-      this.activeTable = sessionStorage.getItem('table_name')
-    })
-  },
-  mounted() {
-
-  },
   methods: {
     // 新增和编辑攻击树
     handleDate() {
       this.title = this.objs[this.activeTable]
       this.dialogVisible = true
-      this.resetForm('formData')
     },
     handleClick(tab) {
-      sessionStorage.setItem('table_name', tab.name);
+      console.log(this.formData);
+
+      const {active} = this.$route.query
+      this.$router.push({path: '/EditProject', query: {active, level: tab.name}});
       if (this.activeTable === 'first') {
         this.tableData = [{
           date: '2016-05-02',
@@ -270,6 +311,8 @@ export default {
       this.$refs[formName].validate((valid) => {
         if (valid) {
           alert('submit!');
+          this.dialogVisible = false
+          this.visible = true
         } else {
           console.log('error submit!!');
           return false;
@@ -277,8 +320,7 @@ export default {
       });
     },
     handleClose(done) {
-        this.dialogVisible = false
-        this.resetForm('formData')
+      this.dialogVisible = false
     }
   },
 };

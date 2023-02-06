@@ -6,6 +6,7 @@
         :key="activeName"
         :header-cell-style="{background:'#f0f9eb', color:'black'}"
         :data="tableData"
+        @row-click="rowClick"
         style="width: 100%">
         <el-table-column prop="asset" label="Asset"></el-table-column>
         <el-table-column prop="assetDescription" label="Asset Description"></el-table-column>
@@ -155,6 +156,11 @@ export default {
     handleAdd(refName) {
       this.visible = true
       this.resetForm(refName)
+    },
+    // 点击行数据事件
+    rowClick(row, column, event){
+      this.visible = true
+      console.log(row, column, event);
     },
     hanedleDelete(scope){
       this.tableData.splice(scope.$index,1)
