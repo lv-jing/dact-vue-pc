@@ -7,16 +7,36 @@
       <el-tab-pane label="安全分析" name="second">
         <SafetyAnalysis :activeName="activeName"/>
       </el-tab-pane>
-      <el-tab-pane label="安全概念" name="third">安全概念</el-tab-pane>
-      <el-tab-pane label="安全设计" name="fourth">安全设计</el-tab-pane>
-      <el-tab-pane label="安全实施" name="fifth">安全实施</el-tab-pane>
-      <el-tab-pane label="安全验证" name="sixth">安全验证</el-tab-pane>
-      <el-tab-pane label="安全确认" name="seventh">安全确认</el-tab-pane>
-      <el-tab-pane label="安全评估" name="eighth">安全评估</el-tab-pane>
-      <el-tab-pane label="安全放行" name="ninth">安全放行</el-tab-pane>
-      <el-tab-pane label="安全生产" name="tenth">安全生产</el-tab-pane>
-      <el-tab-pane label="安全运维" name="eleventh">安全运维</el-tab-pane>
-      <el-tab-pane label="安全停运" name="twelfth">安全停运</el-tab-pane>
+      <el-tab-pane label="安全概念" name="third">
+        <SafetyConcept :activeName="activeName"/>
+      </el-tab-pane>
+      <el-tab-pane label="安全设计" name="fourth">
+        <SafetyDesign :activeName="activeName"/>
+      </el-tab-pane>
+      <el-tab-pane label="安全实施" name="fifth">
+        <SecurityImplementation :activeName="activeName"/>
+      </el-tab-pane>
+      <el-tab-pane label="安全验证" name="sixth">
+        <SecurityVerification :activeName="activeName"/>
+      </el-tab-pane>
+      <el-tab-pane label="安全确认" name="seventh">
+        <SafetyConfirmation :activeName="activeName"/>
+      </el-tab-pane>
+      <el-tab-pane label="安全评估" name="eighth">
+        <SafetyAssessment :activeName="activeName"/>
+      </el-tab-pane>
+      <el-tab-pane label="安全放行" name="ninth">
+        <SafeRelease :activeName="activeName"/>
+      </el-tab-pane>
+      <el-tab-pane label="安全生产" name="tenth">
+        <SafeProduction :activeName="activeName"/>
+      </el-tab-pane>
+      <el-tab-pane label="安全运维" name="eleventh">
+        <Safe0peration  :activeName="activeName"/>
+      </el-tab-pane>
+      <el-tab-pane label="安全停运" name="twelfth">
+        <SafeDeactivation :activeName="activeName"/>
+      </el-tab-pane>
     </el-tabs>
   </div>
 </template>
@@ -24,12 +44,32 @@
 
 import SecurityPlanning from './SecurityPlanning'
 import SafetyAnalysis from './SafetyAnalysis'
+import SafetyConcept from './SafetyConcept'
+import SafetyDesign from './SafetyDesign'
+import SecurityImplementation from './SecurityImplementation'
+import SecurityVerification from './SecurityVerification'
+import SafetyConfirmation from './SafetyConfirmation'
+import SafetyAssessment from './SafetyAssessment'
+import SafeRelease from './SafeRelease'
+import SafeProduction from './SafeProduction'
+import Safe0peration from './Safe0peration'
+import SafeDeactivation from './SafeDeactivation'
 
 export default {
   name: "index",
   components: {
     SecurityPlanning,
-    SafetyAnalysis
+    SafetyAnalysis,
+    SafetyConcept,
+    SafetyDesign,
+    SecurityImplementation,
+    SecurityVerification,
+    SafetyConfirmation,
+    SafetyAssessment,
+    SafeRelease,
+    SafeProduction,
+    Safe0peration,
+    SafeDeactivation
   },
   data() {
     return {

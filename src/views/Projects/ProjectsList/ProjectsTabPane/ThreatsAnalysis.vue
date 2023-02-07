@@ -9,7 +9,7 @@
       <el-tab-pane label="TREES" name="sixth"></el-tab-pane>
     </el-tabs>
     <SecondTable :activeName="activeName" v-if="activeTable!=='sixth'" :tableData="tableData" :handleDate="handleDate"/>
-    <div v-else>定时任务补偿222</div>
+    <TressTable v-else/>
     <!--  tree 弹窗   -->
     <el-dialog
       v-if="dialogVisible"
@@ -174,11 +174,13 @@
 
 <script>
 import SecondTable from './ThreatsComponents/SecondTable.vue';
+import TressTable from './ThreatsComponents/TressTable.vue';
 
 export default {
   name: 'ThreatsAnalysis',
   components: {
     SecondTable,
+    TressTable
   },
   props: {
     activeName: {
