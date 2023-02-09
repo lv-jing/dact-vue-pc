@@ -158,7 +158,7 @@ export default {
       },
       tableData: [
         {
-          name:'安全运维报告',
+          name:'网络安全监控分析报告',
           version:'1.0',
           author:'网络安全开发工程师',
           personnel:'系统设计工程师',
@@ -171,7 +171,7 @@ export default {
           approvalsTime:'2023-2-1',
         },
         {
-          name:'安全运维报告',
+          name:'网络安全漏洞分析报告',
           version:'1.1',
           author:'网络安全开发工程师',
           personnel:'系统设计工程师',

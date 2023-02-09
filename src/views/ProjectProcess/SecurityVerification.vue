@@ -158,10 +158,10 @@ export default {
       },
       tableData: [
         {
-          name:'安全验证报告',
+          name:'网络安全集成与测试规范-安全启动',
           version:'1.0',
-          author:'网络安全开发工程师',
-          personnel:'系统设计工程师',
+          author:'网络安全验证工程师',
+          personnel:'网络安全开发工程师',
           opinion:'修改xxx',
           status:'同意',
           time:'2023-2-1',
@@ -171,10 +171,10 @@ export default {
           approvalsTime:'2023-2-1',
         },
         {
-          name:'安全验证报告',
+          name:'网络安全集成与测试报告-安全启动',
           version:'1.1',
-          author:'网络安全开发工程师',
-          personnel:'系统设计工程师',
+          author:'网络安全验证工程师',
+          personnel:'网络安全开发工程师、网络安全项目管理工程师',
           opinion:'修改xxx',
           status:'同意',
           time:'2023-2-1',

@@ -158,10 +158,10 @@ export default {
       },
       tableData: [
         {
-          name:'安全确认报告',
+          name:'网络安全确认报告',
           version:'1.0',
-          author:'网络安全开发工程师',
-          personnel:'系统设计工程师',
+          author:'网络安全确认工程师',
+          personnel:'网络安全确认工程师',
           opinion:'修改xxx',
           status:'同意',
           time:'2023-2-1',
@@ -171,10 +171,10 @@ export default {
           approvalsTime:'2023-2-1',
         },
         {
-          name:'安全确认报告',
+          name:'网络安全确认报告',
           version:'1.1',
-          author:'网络安全开发工程师',
-          personnel:'系统设计工程师',
+          author:'网络安全确认工程师',
+          personnel:'网络安全确认工程师',
           opinion:'修改xxx',
           status:'同意',
           time:'2023-2-1',
@@ -186,8 +186,8 @@ export default {
         {
           name:'安全确认报告',
           version:'1.2',
-          author:'网络安全开发工程师',
-          personnel:'系统设计工程师',
+          author:'网络安全确认工程师',
+          personnel:'网络安全确认工程师',
           opinion:'修改xxx',
           status:'同意',
           time:'2023-2-1',

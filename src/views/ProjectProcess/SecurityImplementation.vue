@@ -184,7 +184,7 @@ export default {
           approvalsTime:'2023-2-1',
         },
         {
-          name:'实施报告',
+          name:'零件网络安全需求',
           version:'1.2',
           author:'网络安全开发工程师',
           personnel:'系统设计工程师',

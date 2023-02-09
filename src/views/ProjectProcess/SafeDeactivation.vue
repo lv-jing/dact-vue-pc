@@ -158,7 +158,7 @@ export default {
       },
       tableData: [
         {
-          name:'安全停运报告',
+          name:'EOP管理规定',
           version:'1.0',
           author:'网络安全开发工程师',
           personnel:'系统设计工程师',
