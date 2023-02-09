@@ -158,7 +158,7 @@ export default {
       },
       tableData: [
         {
-          name:'TARA报告',
+          name:'实施报告',
           version:'1.0',
           author:'网络安全开发工程师',
           personnel:'系统设计工程师',
@@ -171,7 +171,7 @@ export default {
           approvalsTime:'2023-2-1',
         },
         {
-          name:'TARA报告',
+          name:'实施报告',
           version:'1.1',
           author:'网络安全开发工程师',
           personnel:'系统设计工程师',
@@ -184,7 +184,7 @@ export default {
           approvalsTime:'2023-2-1',
         },
         {
-          name:'TARA报告',
+          name:'实施报告',
           version:'1.2',
           author:'网络安全开发工程师',
           personnel:'系统设计工程师',
