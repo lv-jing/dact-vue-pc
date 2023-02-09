@@ -10,6 +10,13 @@
     </el-tabs>
     <SecondTable :activeName="activeName" v-if="activeTable!=='sixth'" :tableData="tableData" :handleDate="handleDate"/>
     <TressTable v-else/>
+    <el-divider/>
+    <div class="form-footer-but">
+      <div>
+        <el-button @click="prevStep">Prev Step</el-button>
+        <el-button type="primary" @click="nextStep">Next Step</el-button>
+      </div>
+    </div>
     <!--  tree 弹窗   -->
     <el-dialog
       v-if="dialogVisible"
@@ -159,13 +166,64 @@
     </el-dialog>
     <!--  L5新增后分数弹窗   -->
     <el-dialog
-      title="提示"
+      title="Attack Feasibility"
       :visible.sync="visible"
-      width="30%">
-      <span>这是一段信息</span>
+      width="40%">
+      <el-form :model="ruleForm" ref="ruleForm" :rules="rulestwo" label-width="140px" class="demo-ruleForm">
+        <el-row :gutter="24">
+          <el-col :span="24">
+            <el-form-item label="Attack Vector" prop="value">
+              <el-select class="w100" v-model="ruleForm.value" clearable placeholder="请选择">
+                <el-option
+                  v-for="item in options"
+                  :key="item.value"
+                  :label="item.label"
+                  :value="item.value">
+                </el-option>
+              </el-select>
+            </el-form-item>
+          </el-col>
+          <el-col :span="24">
+            <el-form-item label="Complexity" prop="value1">
+              <el-select class="w100" v-model="ruleForm.value1" clearable placeholder="请选择">
+                <el-option
+                  v-for="item in options"
+                  :key="item.value"
+                  :label="item.label"
+                  :value="item.value">
+                </el-option>
+              </el-select>
+            </el-form-item>
+          </el-col>
+          <el-col :span="24">
+            <el-form-item label="Privilege Required" prop="value2">
+              <el-select class="w100" v-model="ruleForm.value2" clearable placeholder="请选择">
+                <el-option
+                  v-for="item in options"
+                  :key="item.value"
+                  :label="item.label"
+                  :value="item.value">
+                </el-option>
+              </el-select>
+            </el-form-item>
+          </el-col>
+          <el-col :span="24">
+            <el-form-item label="User Interaction" prop="value3">
+              <el-select class="w100" v-model="ruleForm.value3" clearable placeholder="请选择">
+                <el-option
+                  v-for="item in options"
+                  :key="item.value"
+                  :label="item.label"
+                  :value="item.value">
+                </el-option>
+              </el-select>
+            </el-form-item>
+          </el-col>
+        </el-row>
+      </el-form>
       <span slot="footer" class="dialog-footer">
     <el-button @click="visible = false">取 消</el-button>
-    <el-button type="primary" @click="visible = false">确 定</el-button>
+    <el-button type="primary" @click="attackFeasibility('ruleForm')">确 定</el-button>
   </span>
     </el-dialog>
   </div>
@@ -183,9 +241,8 @@ export default {
     TressTable
   },
   props: {
-    activeName: {
-      type: String,
-    }
+    activeName:String,
+    changeActive:Function
   },
   data() {
     return {
@@ -227,6 +284,21 @@ export default {
           {required: true, message: '请选择', trigger: 'blur'},
         ],
       },
+      ruleForm:{},
+      rulestwo:{
+        value: [
+          {required: true, message: '请输入', trigger: 'blur'},
+        ],
+        value1: [
+          {required: true, message: '请输入', trigger: 'blur'},
+        ],
+        value2: [
+          {required: true, message: '请输入', trigger: 'blur'},
+        ],
+        value3: [
+          {required: true, message: '请输入', trigger: 'blur'},
+        ],
+      },
       title: '',
       objs: {
         first: 'LEVEL-5',
@@ -250,6 +322,7 @@ export default {
   methods: {
     // 新增和编辑攻击树
     handleDate() {
+      this.resetForm('formData')
       this.title = this.objs[this.activeTable]
       this.dialogVisible = true
     },
@@ -314,7 +387,9 @@ export default {
         if (valid) {
           alert('submit!');
           this.dialogVisible = false
-          this.visible = true
+          if(this.activeTable==='first'){
+            this.visible = true
+          }
         } else {
           console.log('error submit!!');
           return false;
@@ -322,7 +397,26 @@ export default {
       });
     },
     handleClose(done) {
+      this.resetForm('formData')
       this.dialogVisible = false
+    },
+    attackFeasibility(formName){
+      this.$refs[formName].validate((valid) => {
+        if (valid) {
+          alert('submit!');
+        } else {
+          console.log('error submit!!');
+          return false;
+        }
+      });
+    },
+    prevStep(){
+      this.changeActive('fourth')
+      document.documentElement.scrollTop = 0
+    },
+    nextStep() {
+      this.changeActive('sixth')
+      document.documentElement.scrollTop = 0
     }
   },
 };

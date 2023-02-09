@@ -27,13 +27,23 @@
       :limit.sync="queryParams.pageSize"
       @pagination="getList"
     />
+    <el-divider/>
+    <div class="form-footer-but">
+      <div>
+        <el-button @click="prevStep">Prev Step</el-button>
+        <el-button type="primary" @click="nextStep">Next Step</el-button>
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
 export default {
   name: 'SecurityGoal',
-  props: ['activeName'],
+  props: {
+    activeName:String,
+    changeActive:Function
+  },
   data() {
     return {
       total: 20,
@@ -90,6 +100,14 @@ export default {
     };
   },
   methods: {
+    prevStep(){
+      this.changeActive('sixth')
+      document.documentElement.scrollTop = 0
+    },
+    nextStep() {
+      this.changeActive('eighth')
+      document.documentElement.scrollTop = 0
+    },
     onSubmit() {
       console.log('submit!');
     },
