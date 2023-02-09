@@ -1,38 +1,6 @@
 <template>
   <div>
-      <el-form :inline="true" :model="queryParams" class="demo-form-inline">
-        <el-form-item label="Enterprise Abbr">
-          <el-input v-model="queryParams.user" placeholder="请输入"></el-input>
-        </el-form-item>
-        <el-form-item label="Vehicle">
-          <el-input v-model="queryParams.region" placeholder="请输入"></el-input>
-        </el-form-item>
-        <el-form-item>
-          <el-button type="primary" @click="onSubmit">查询</el-button>
-        </el-form-item>
-      </el-form>
-      <el-table
-        :data="tableData"
-        :key="activeName"
-        :header-cell-style="{background:'#f0f9eb', color:'black'}"
-        style="width: 100%; margin-top: 20px">
-        <el-table-column prop="id" label="Component"></el-table-column>
-        <el-table-column prop="name" label="Risk ID"></el-table-column>
-        <el-table-column prop="amount3" label="Threat Name"></el-table-column>
-        <el-table-column prop="id" label="Attack ID"></el-table-column>
-        <el-table-column prop="id" label="Concept ID"></el-table-column>
-        <el-table-column prop="id" label="Concept Content"></el-table-column>
-        <el-table-column prop="id" label="Claim ID"></el-table-column>
-        <el-table-column prop="id" label="Claim Content"></el-table-column>
-
-      </el-table>
-      <pagination
-        v-show="total>0"
-        :total="total"
-        :page.sync="queryParams.pageNum"
-        :limit.sync="queryParams.pageSize"
-        @pagination="getList"
-      />
+   安全验证
     <el-divider/>
     <div class="form-footer-but">
       <div>
@@ -106,11 +74,11 @@ export default {
   },
   methods: {
     prevStep(){
-      this.changeActive('tenth')
+      this.changeActive('thirteenth')
       document.documentElement.scrollTop = 0
     },
     nextStep() {
-      this.changeActive('twelfth')
+      this.changeActive('fifteenth')
       document.documentElement.scrollTop = 0
     },
     onSubmit() {

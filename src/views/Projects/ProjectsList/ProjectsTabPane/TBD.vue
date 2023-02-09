@@ -1,37 +1,10 @@
 <template>
   <div>
-    <el-form :inline="true" :model="queryParams" class="demo-form-inline">
-      <el-form-item label="Enterprise Abbr">
-        <el-input v-model="queryParams.user" placeholder="请输入"></el-input>
-      </el-form-item>
-      <el-form-item label="Vehicle">
-        <el-input v-model="queryParams.region" placeholder="请输入"></el-input>
-      </el-form-item>
-      <el-form-item>
-        <el-button type="primary" @click="onSubmit">查询</el-button>
-      </el-form-item>
-    </el-form>
-    <el-table
-      :data="tableData"
-      :key="activeName"
-      :header-cell-style="{background:'#f0f9eb', color:'black'}"
-      style="width: 100%; margin-top: 20px">
-      <el-table-column prop="id" label="Component"></el-table-column>
-      <el-table-column prop="name" label="Requirement ID"></el-table-column>
-      <el-table-column prop="amount3" label="Requrement Content"></el-table-column>
-    </el-table>
-    <pagination
-      v-show="total>0"
-      :total="total"
-      :page.sync="queryParams.pageNum"
-      :limit.sync="queryParams.pageSize"
-      @pagination="getList"
-    />
+    待定
     <el-divider/>
     <div class="form-footer-but">
       <div>
         <el-button @click="prevStep">Prev Step</el-button>
-        <el-button type="primary" @click="nextStep">Next Step</el-button>
       </div>
     </div>
   </div>
@@ -39,7 +12,6 @@
 
 <script>
 export default {
-  name: 'RequirementAllocation',
   props: {
     activeName:String,
     changeActive:Function
@@ -101,20 +73,16 @@ export default {
   },
   methods: {
     prevStep(){
-      this.changeActive('seventh')
+      this.changeActive('fourteenth')
       document.documentElement.scrollTop = 0
     },
-    nextStep() {
-      this.changeActive('ninth')
-      document.documentElement.scrollTop = 0
+    onSubmit() {
+      console.log('submit!');
     },
-    onSubmit(){
-
-    },
-    getList(){
-
+    getList() {
+      console.log(this.queryParams);
     }
-  },
+  }
 };
 </script>
 

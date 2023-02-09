@@ -72,25 +72,25 @@
         <template slot="label">
           <div>Specification<br><small>安全规范</small></div>
         </template>
-        <SecurityClaim :activeName="activeName" v-if="activeName==='twelfth'" :changeActive="changeActive"/>
+        <Specification :activeName="activeName" v-if="activeName==='twelfth'" :changeActive="changeActive"/>
       </el-tab-pane>
       <el-tab-pane name="thirteenth">
         <template slot="label">
           <div>Integration Verification<br><small>集成规则</small></div>
         </template>
-        <SecurityClaim :activeName="activeName" v-if="activeName==='thirteenth'" :changeActive="changeActive"/>
+        <Integration :activeName="activeName" v-if="activeName==='thirteenth'" :changeActive="changeActive"/>
       </el-tab-pane>
       <el-tab-pane name="fourteenth">
         <template slot="label">
           <div>Validation<br><small>安全验证</small></div>
         </template>
-        <SecurityClaim :activeName="activeName" v-if="activeName==='fourteenth'" :changeActive="changeActive"/>
+        <Validation :activeName="activeName" v-if="activeName==='fourteenth'" :changeActive="changeActive"/>
       </el-tab-pane>
       <el-tab-pane name="fifteenth">
         <template slot="label">
           <div>TBD<br><small>待定</small></div>
         </template>
-        <SecurityClaim :activeName="activeName" v-if="activeName==='fifteenth'" :changeActive="changeActive"/>
+        <TBD :activeName="activeName" v-if="activeName==='fifteenth'" :changeActive="changeActive"/>
       </el-tab-pane>
     </el-tabs>
   </div>
@@ -108,6 +108,10 @@ import RequirementAllocation from './ProjectsTabPane/RequirementAllocation.vue';
 import ConceptAllocation from './ProjectsTabPane/ConceptAllocation.vue';
 import RiskReAssessment from './ProjectsTabPane/RiskReAssessment.vue';
 import SecurityClaim from './ProjectsTabPane/SecurityClaim.vue';
+import Specification from './ProjectsTabPane/Specification.vue';
+import Integration from './ProjectsTabPane/Integration.vue';
+import Validation from './ProjectsTabPane/Validation.vue';
+import TBD from './ProjectsTabPane/TBD.vue';
 
 export default {
   name: 'EditProject',
@@ -123,6 +127,10 @@ export default {
     ConceptAllocation,
     RiskReAssessment,
     SecurityClaim,
+    Specification,
+    Integration,
+    Validation,
+    TBD
   },
   data() {
     return {

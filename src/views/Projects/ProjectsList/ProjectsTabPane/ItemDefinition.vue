@@ -215,8 +215,8 @@ export default {
     submitForm(formName) {
       this.$refs[formName].validate((valid) => {
         if (valid) {
-          console.log(this.ruleForm);
-          return '222';
+          this.changeActive('third')
+          document.documentElement.scrollTop = 0
         }
         this.isErrorPosition()
         return false;
