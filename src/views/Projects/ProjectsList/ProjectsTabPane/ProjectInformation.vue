@@ -82,7 +82,7 @@
       <el-form-item>
         <el-upload
           class="upload-demo"
-          action="https://jsonplaceholder.typicode.com/posts/"
+          :action="actionUrl"
           :on-preview="handlePreview"
           :on-remove="handleRemove"
           :file-list="fileList"
@@ -125,7 +125,7 @@
 
 <script>
 import {getProjectsInfor} from "@/api/project";
-
+import {actionUrl} from "@/api/upload";
 export default {
   name: 'ProjectInformation',
   props: {
@@ -133,6 +133,7 @@ export default {
   },
   data() {
     return {
+      actionUrl,
       fileList: [],
       ruleForm: {
         pass: '',

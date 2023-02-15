@@ -16,7 +16,8 @@
         <template slot="label">
           <span>2.1 System Information - 系统信息</span>
         </template>
-        <el-input type="textarea" autosize v-model.number="ruleForm.system_information" placeholder="Please Input"></el-input>
+        <el-input type="textarea" autosize v-model.number="ruleForm.system_information"
+                  placeholder="Please Input"></el-input>
       </el-form-item>
       <el-form-item>
         <el-upload
@@ -29,11 +30,11 @@
           <el-button size="small" type="primary">点击上传</el-button>
         </el-upload>
       </el-form-item>
-      <el-form-item prop="pass2">
+      <el-form-item prop="functions">
         <template slot="label">
           <span>2.2 Functions - 功能描述</span>
         </template>
-        <el-input type="textarea" autosize v-model.number="ruleForm.pass2" placeholder="Please Input"></el-input>
+        <el-input type="textarea" autosize v-model.number="ruleForm.functions" placeholder="Please Input"></el-input>
       </el-form-item>
       <el-form-item>
         <el-upload
@@ -46,11 +47,11 @@
           <el-button size="small" type="primary">点击上传</el-button>
         </el-upload>
       </el-form-item>
-      <el-form-item prop="pass3">
+      <el-form-item prop="network_topology">
         <template slot="label">
           <span>2.3 Network Topology - 网络拓扑架构</span>
         </template>
-        <el-input type="textarea" autosize v-model.number="ruleForm.pass3" placeholder="Please Input"></el-input>
+        <el-input type="textarea" autosize v-model.number="ruleForm.network_topology" placeholder="Please Input"></el-input>
       </el-form-item>
       <el-form-item>
         <el-upload
@@ -63,12 +64,11 @@
           <el-button size="small" type="primary">点击上传</el-button>
         </el-upload>
       </el-form-item>
-      <el-form-item prop="pass4">
+      <el-form-item prop="operational_environment">
         <template slot="label">
           <span>2.4 Operational Environment - 运行环境</span>
         </template>
-        <el-input type="textarea" autosize v-model.number="ruleForm.pass4" placeholder="Please Input"></el-input>
-        <el-input autosize v-model.number="ruleForm.pass4" placeholder="Please Input"></el-input>
+        <el-input type="textarea" autosize v-model.number="ruleForm.operational_environment" placeholder="Please Input"></el-input>
       </el-form-item>
       <el-form-item>
         <el-upload
@@ -81,12 +81,12 @@
           <el-button size="small" type="primary">点击上传</el-button>
         </el-upload>
       </el-form-item>
-      <el-form-item prop="pass5">
+      <el-form-item prop="exisiting_security_measures">
         <template slot="label">
           <span>2.5 Exisiting Security Measures - 现有安全措施</span>
           <div class="-mt-1 text-xs text-gray-400"></div>
         </template>
-        <el-select filterable allow-create v-model="ruleForm.pass5" placeholder="Please Select" multiple class="w100">
+        <el-select filterable allow-create v-model="ruleForm.exisiting_security_measures" placeholder="Please Select" multiple class="w100">
           <el-option
             v-for="item in options"
             :key="item.value"
@@ -95,12 +95,12 @@
           </el-option>
         </el-select>
       </el-form-item>
-      <el-form-item prop="pass6">
+      <el-form-item prop="assumptions">
         <template slot="label">
           <span>2.6 Assumptions - 假设</span>
           <div class="-mt-1 text-xs text-gray-400"></div>
         </template>
-        <el-select filterable allow-create default-first-option v-model="ruleForm.pass6" placeholder="Please Select"
+        <el-select filterable allow-create default-first-option v-model="ruleForm.assumptions" placeholder="Please Select"
                    multiple class="w100">
           <el-option
             v-for="item in options"
@@ -110,11 +110,11 @@
           </el-option>
         </el-select>
       </el-form-item>
-      <el-form-item prop="pass7">
+      <el-form-item prop="constraints">
         <template slot="label">
           <span>2.6 Constraints - 约束</span>
         </template>
-        <el-select filterable allow-create default-first-option v-model="ruleForm.pass7" placeholder="Please Select"
+        <el-select filterable allow-create default-first-option v-model="ruleForm.constraints" placeholder="Please Select"
                    multiple class="w100">
           <el-option
             v-for="item in options"
@@ -124,11 +124,11 @@
           </el-option>
         </el-select>
       </el-form-item>
-      <el-form-item prop="pass8">
+      <el-form-item prop="components">
         <template slot="label">
           <span>2.6 Components - 组件</span>
         </template>
-        <el-select filterable allow-create default-first-option v-model="ruleForm.pass8" placeholder="Please Select"
+        <el-select filterable allow-create default-first-option v-model="ruleForm.components" placeholder="Please Select"
                    multiple class="w100">
           <el-option
             v-for="item in options"
@@ -138,11 +138,11 @@
           </el-option>
         </el-select>
       </el-form-item>
-      <el-form-item prop="pass9">
+      <el-form-item prop="sub_systems">
         <template slot="label">
           <span>2.6 Sub-Systems - 子系统</span>
         </template>
-        <el-select filterable allow-create default-first-option v-model="ruleForm.pass9" placeholder="Please Select"
+        <el-select filterable allow-create default-first-option v-model="ruleForm.sub_systems" placeholder="Please Select"
                    multiple class="w100" clearable>
           <el-option
             v-for="item in options"
@@ -169,17 +169,12 @@ import {getProjectSystem} from "../../../../api/project";
 export default {
   name: 'ItemDefinition',
   props: {
-    changeActive:Function
+    changeActive: Function
   },
   data() {
     return {
       fileList: [],
-      ruleForm: {
-        pass: '',
-        pass1: '',
-        checkPass: '',
-        age: '',
-      },
+      ruleForm: {},
       rules: {
         pass: [
           {required: true, message: '请输入', trigger: 'change'},
@@ -191,22 +186,7 @@ export default {
           {required: true, message: '请输入', trigger: 'change'},
         ],
       },
-      options: [{
-        value: '选项1',
-        label: '黄金糕',
-      }, {
-        value: '选项2',
-        label: '双皮奶',
-      }, {
-        value: '选项3',
-        label: '蚵仔煎',
-      }, {
-        value: '选项4',
-        label: '龙须面',
-      }, {
-        value: '选项5',
-        label: '北京烤鸭',
-      }],
+      options: [],
       value: '',
     };
   },
@@ -214,15 +194,22 @@ export default {
     this.getInfo()
   },
   methods: {
-   async getInfo(){
-     const{data} = await getProjectSystem({id:this.$route.query.id})
-     this.ruleForm = {...this.ruleForm,...data}
+    async getInfo() {
+      const {data} = await getProjectSystem({id: this.$route.query.id})
+      this.ruleForm = {
+        ...this.ruleForm,
+        ...data,
+        assumptions:data.assumptions.split(','),
+        components:data.components.split(','),
+        constraints:data.constraints.split(','),
+        exisiting_security_measures:data.exisiting_security_measures.split(','),
+        sub_systems:data.sub_systems.split(',')
+      }
     },
     submitForm(formName) {
       this.$refs[formName].validate((valid) => {
         if (valid) {
           this.changeActive('third')
-
         }
         this.isErrorPosition()
         return false;
@@ -237,7 +224,7 @@ export default {
     handlePreview(file) {
       console.log(file);
     },
-    prevStep(){
+    prevStep() {
       this.changeActive('first')
 
     }
