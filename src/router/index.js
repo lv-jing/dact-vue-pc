@@ -157,7 +157,7 @@ export const constantRoutes = [
       {
         path: 'ProjectsList',
         name: 'ProjectsList',
-        meta: { title: '项目工程管理'},
+        meta: { title: '项目工程管理',noCache:true},
         component: () => import('@/views/Projects/ProjectsList/index'),
         children:[
           {
@@ -247,13 +247,20 @@ export const constantRoutes = [
   {
     path: '/Tool',
     component: Layout,
-    redirect: 'ToolConfiguration',
+    meta: { title: '工具运行管理', icon: 'system', affix: true },
+    redirect: 'noRedirect',
     children: [
       {
-        path: 'ToolConfiguration',
-        component: () => import('@/views/ToolConfiguration/index'),
-        name: 'ToolConfiguration',
-        meta: { title: '工具配置管理', icon: 'system', affix: true }
+        path: 'LibrariesSync',
+        component: () => import('@/views/ToolConfiguration/LibrariesSync'),
+        name: 'LibrariesSync',
+        meta: { title: '项目工程管理'}
+      },
+      {
+        path: 'AttackTree',
+        component: () => import('@/views/ToolConfiguration/AttackTree'),
+        name: 'AttackTree',
+        meta: { title: '攻击树管理',  }
       }
     ]
   },
@@ -266,7 +273,14 @@ export const constantRoutes = [
         path: 'SecurityTechnology',
         component: () => import('@/views/SecurityTechnology/index'),
         name: 'index',
-        meta: { title: '网络安全技术资产管理', icon: 'system', affix: true }
+        meta: { title: '网络安全技术资产管理', icon: 'system' }
+      },
+      {
+        path: 'Library',
+        hidden:true,
+        component: () => import('@/views/SecurityTechnology/Library'),
+        name: 'Library',
+        meta: { title: 'Librarys',activeMenu:'/SecurityTechnology/SecurityTechnology' }
       }
     ]
   },

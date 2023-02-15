@@ -74,7 +74,7 @@ export default {
   methods: {
     prevStep(){
       this.changeActive('fourteenth')
-      document.documentElement.scrollTop = 0
+
     },
     onSubmit() {
       console.log('submit!');

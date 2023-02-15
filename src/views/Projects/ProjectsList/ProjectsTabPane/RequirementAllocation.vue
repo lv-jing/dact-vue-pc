@@ -102,11 +102,11 @@ export default {
   methods: {
     prevStep(){
       this.changeActive('seventh')
-      document.documentElement.scrollTop = 0
+
     },
     nextStep() {
       this.changeActive('ninth')
-      document.documentElement.scrollTop = 0
+
     },
     onSubmit(){
 

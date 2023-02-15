@@ -182,19 +182,6 @@ export default {
           comments:'修改xxx',
           approvalsStatus:'退回',
           approvalsTime:'2023-2-1',
-        },
-        {
-          name:'安全验证报告',
-          version:'1.2',
-          author:'网络安全开发工程师',
-          personnel:'系统设计工程师',
-          opinion:'修改xxx',
-          status:'同意',
-          time:'2023-2-1',
-          approver:'高级经理',
-          comments:'修改xxx',
-          approvalsStatus:'退回',
-          approvalsTime:'2023-2-1',
         }
       ],
       formData:{

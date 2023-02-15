@@ -8,13 +8,13 @@
              class="demo-ruleForm font-semibold">
       <el-row :gutter="24">
           <el-col :span="8">
-            <el-form-item label="1 Project TOE" prop="pass">
-              <el-input v-model="ruleForm.pass" placeholder="Please Input"></el-input>
+            <el-form-item label="1 Project TOE" prop="project_toe">
+              <el-input v-model="ruleForm.project_toe" placeholder="Please Input"></el-input>
             </el-form-item>
           </el-col>
         <el-col :span="8">
-          <el-form-item label="2 TOE Level" prop="pass1">
-            <el-select v-model="ruleForm.pass1" placeholder="Please Select" class="w100">
+          <el-form-item label="2 TOE Level" prop="document_class">
+            <el-select v-model="ruleForm.document_class" placeholder="Please Select" class="w100">
               <el-option
                 v-for="item in options"
                 :key="item.value"
@@ -25,59 +25,59 @@
           </el-form-item>
         </el-col>
         <el-col :span="8">
-          <el-form-item label="3 Document Version" prop="pass2">
-            <el-input v-model="ruleForm.pass2"></el-input>
+          <el-form-item label="3 Document Version" prop="document_version">
+            <el-input v-model="ruleForm.document_version"></el-input>
           </el-form-item>
         </el-col>
         <el-col :span="8">
-          <el-form-item label="4 Status" prop="pass3">
-            <el-input v-model="ruleForm.pass3"></el-input>
+          <el-form-item label="4 Status" prop="status">
+            <el-input v-model="ruleForm.status"></el-input>
           </el-form-item>
         </el-col>
         <el-col :span="8">
-          <el-form-item label="5 Reviewer(s)" prop="pass4">
-            <el-input v-model="ruleForm.pass4"></el-input>
+          <el-form-item label="5 Reviewer(s)" prop="reviewers">
+            <el-input v-model="ruleForm.reviewers"></el-input>
           </el-form-item>
         </el-col>
         <el-col :span="8">
-          <el-form-item label="6 Author(s)" prop="pass5">
-            <el-input v-model="ruleForm.pass5"></el-input>
+          <el-form-item label="6 Author(s)" prop="authors">
+            <el-input v-model="ruleForm.authors"></el-input>
           </el-form-item>
         </el-col>
         <el-col :span="8">
-          <el-form-item label="7 Author Department" prop="pass6">
-            <el-input v-model="ruleForm.pass6"></el-input>
+          <el-form-item label="7 Author Department" prop="author_department">
+            <el-input v-model="ruleForm.author_department"></el-input>
           </el-form-item>
         </el-col>
         <el-col :span="8">
-          <el-form-item label="8 Author company" prop="pass7">
-            <el-input v-model="ruleForm.pass7"></el-input>
+          <el-form-item label="8 Author company" prop="author_company">
+            <el-input v-model="ruleForm.author_company"></el-input>
           </el-form-item>
         </el-col>
         <el-col :span="8">
-          <el-form-item label="9 Author phone num" prop="pass8">
-            <el-input v-model="ruleForm.pass8"></el-input>
+          <el-form-item label="9 Author phone num" prop="author_phone_num">
+            <el-input v-model="ruleForm.author_phone_num"></el-input>
           </el-form-item>
         </el-col>
         <el-col :span="8">
-          <el-form-item label="10 Doucment Secrecy Level" prop="pass9">
-            <el-input v-model="ruleForm.pass9"></el-input>
+          <el-form-item label="10 Doucment Secrecy Level" prop="document_secrecy_level">
+            <el-input v-model="ruleForm.document_secrecy_level"></el-input>
           </el-form-item>
         </el-col>
         <el-col :span="8">
-          <el-form-item prop="pass10">
+          <el-form-item prop="target_object">
             <template slot="label">
               <span>11 Objects - 目标</span>
             </template>
-            <el-input v-model.number="ruleForm.pass10"></el-input>
+            <el-input v-model.number="ruleForm.target_object"></el-input>
           </el-form-item>
         </el-col>
       </el-row>
-      <el-form-item prop="pass11">
+      <el-form-item prop="inputs">
         <template slot="label">
           <span>12 Inputs - 输入信息</span>
         </template>
-        <el-input   type="textarea"  autosize v-model.number="ruleForm.pass11"></el-input>
+        <el-input   type="textarea"  autosize v-model.number="ruleForm.inputs"></el-input>
       </el-form-item>
       <el-form-item>
         <el-upload
@@ -91,23 +91,29 @@
 <!--          <div slot="tip" class="el-upload__tip">只能上传jpg/png文件，且不超过500kb</div>-->
         </el-upload>
       </el-form-item>
-      <el-form-item prop="pass12">
+      <el-form-item prop="activities">
+        <template slot="label">
+          <span>13 Activities - 工作概述</span>
+        </template>
+        <el-input   type="textarea"  autosize v-model.number="ruleForm.activities"></el-input>
+      </el-form-item>
+      <el-form-item prop="output">
         <template slot="label">
           <span>14 Outputs - 工作输出</span>
         </template>
-        <el-input   type="textarea"  autosize v-model.number="ruleForm.pass12"></el-input>
+        <el-input   type="textarea"  autosize v-model.number="ruleForm.output"></el-input>
       </el-form-item>
-      <el-form-item prop="pass13">
+      <el-form-item prop="document_history">
         <template slot="label">
           <span>15 Document History - 文件历史</span>
         </template>
-        <el-input   type="textarea"  autosize v-model.number="ruleForm.pass13"></el-input>
+        <el-input   type="textarea"  autosize v-model.number="ruleForm.document_history"></el-input>
       </el-form-item>
-      <el-form-item prop="pass14">
+      <el-form-item prop="todo_list">
         <template slot="label">
           <span>16 Todo List - 任务清单</span>
         </template>
-        <el-input   type="textarea"  autosize v-model.number="ruleForm.pass14"></el-input>
+        <el-input   type="textarea"  autosize v-model.number="ruleForm.todo_list"></el-input>
       </el-form-item>
       <el-divider/>
       <div class="form-footer-but">
@@ -118,6 +124,8 @@
 </template>
 
 <script>
+import {getProjectsInfor} from "@/api/project";
+
 export default {
   name: 'ProjectInformation',
   props: {
@@ -125,47 +133,53 @@ export default {
   },
   data() {
     return {
-      fileList: [
-        {
-          name: 'food.jpeg',
-          url: 'https://fuss10.elemecdn.com/3/63/4e7f3a15429bfda99bce42a18cdd1jpeg.jpeg?imageMogr2/thumbnail/360x360/format/webp/quality/100',
-        },
-        {
-          name: 'food2.jpeg',
-          url: 'https://fuss10.elemecdn.com/3/63/4e7f3a15429bfda99bce42a18cdd1jpeg.jpeg?imageMogr2/thumbnail/360x360/format/webp/quality/100',
-        },
-      ],
+      fileList: [],
       ruleForm: {
         pass: '',
         checkPass: '',
         age: '',
       },
       rules: {
-        pass: [
+        project_toe: [
+          { required: true, message: '请输入', trigger: 'blur' },
+        ],
+        document_class: [
           { required: true, message: '请输入', trigger: 'change' },
         ],
-        checkPass: [
-          { required: true, message: '请输入', trigger: 'change' },
+        document_version: [
+          { required: true, message: '请输入', trigger: 'blur' },
         ],
-        age: [
-          { required: true, message: '请输入', trigger: 'change' },
+        status: [
+          { required: true, message: '请输入', trigger: 'blur' },
+        ],
+        reviewers: [
+          { required: true, message: '请输入', trigger: 'blur' },
+        ],
+        authors: [
+          { required: true, message: '请输入', trigger: 'blur' },
+        ],
+        author_department: [
+          { required: true, message: '请输入', trigger: 'blur' },
+        ],
+        author_company: [
+          { required: true, message: '请输入', trigger: 'blur' },
+        ],
+        author_phone_num: [
+          { required: true, message: '请输入', trigger: 'blur' },
+        ],
+        document_secrecy_level: [
+          { required: true, message: '请输入', trigger: 'blur' },
         ],
       },
       options: [{
-        value: '选项1',
-        label: '黄金糕',
+        value: 'Vehicle',
+        label: 'Vehicle',
       }, {
-        value: '选项2',
-        label: '双皮奶',
+        value: 'Function',
+        label: 'Function',
       }, {
-        value: '选项3',
-        label: '蚵仔煎',
-      }, {
-        value: '选项4',
-        label: '龙须面',
-      }, {
-        value: '选项5',
-        label: '北京烤鸭',
+        value: 'Component',
+        label: 'Component',
       }],
       value: '',
     };
@@ -185,15 +199,14 @@ export default {
 
   },
   methods: {
-    initData(){
-
+    async initData(){
+      const {data} = await getProjectsInfor({id:this.$route.query.id})
+      this.ruleForm = {...this.ruleForm,...data}
     },
     submitForm(formName) {
       this.$refs[formName].validate((valid) => {
         if (valid) {
-          console.log(this.ruleForm);
           this.changeActive('second')
-          document.documentElement.scrollTop = 0
           return true;
         }
         this.isErrorPosition()

@@ -137,11 +137,11 @@ export default {
     },
     prevStep(){
       this.changeActive('third')
-      document.documentElement.scrollTop = 0
+
     },
     nextStep() {
       this.changeActive('fifth')
-      document.documentElement.scrollTop = 0
+
     }
   },
 };

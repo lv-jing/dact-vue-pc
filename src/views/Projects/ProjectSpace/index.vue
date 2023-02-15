@@ -21,6 +21,7 @@
           :data="tableData"
           highlight-current-row
           @row-click="rowClick"
+          v-loading="loading"
           :header-cell-style="{background:'#f0f9eb', color:'black'}"
           style="width: 100%">
           <el-table-column prop="enterprise" label="Enterprise"></el-table-column>
@@ -30,7 +31,7 @@
           <el-table-column prop="display_name" label="Modified Information">
             <template slot-scope="scope">
               {{ scope.row.display_name }}<br />
-              {{ scope.row.created_at }}
+              {{ parseTime(scope.row.created_at) }}
             </template>
           </el-table-column>
           <el-table-column label="Operations" width="215">
@@ -115,6 +116,8 @@
 
 <script>
 import AvatarUploader from "@/components/AvatarUploader"
+import {getProjectSpaceList} from "@/api/project";
+import {parseTime} from "@/utils/common";
 
 export default {
   name: "ProjectSpace",
@@ -123,7 +126,9 @@ export default {
   },
   data() {
     return {
+      parseTime,
       memberVisible:false,
+      loading:false,
       value:[],
       data:[
         {
@@ -157,19 +162,19 @@ export default {
           {required: true, message: '请输入', trigger: 'change'},
         ],
       },
-      tableData: [
-        {
-          enterprise:'上汽乘用车',
-          enterprise_short:'SAIC',
-          vehicle_name:'EV52',
-          address:'上海市杨浦区军工路2500号',
-          display_name:'陈泓睿',
-          created_at:'2022-11-17 23:46:57',
-        }
-      ],
+      tableData: [],
     };
   },
+  mounted() {
+    this.getLists()
+  },
   methods: {
+    async getLists(){
+      this.loading = true
+      const {data} = await getProjectSpaceList()
+      this.tableData = data||[]
+      this.loading = false
+    },
     rowClick(row, column, event){
       this.dialogVisible = true
       this.title = 'Edit projectSpace'

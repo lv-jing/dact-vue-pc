@@ -412,11 +412,11 @@ export default {
     },
     prevStep(){
       this.changeActive('fourth')
-      document.documentElement.scrollTop = 0
+
     },
     nextStep() {
       this.changeActive('sixth')
-      document.documentElement.scrollTop = 0
+
     }
   },
 };

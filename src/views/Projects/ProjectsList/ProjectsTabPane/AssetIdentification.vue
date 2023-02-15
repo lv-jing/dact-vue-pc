@@ -147,11 +147,11 @@ export default {
   methods: {
     prevStep(){
       this.changeActive('second')
-      document.documentElement.scrollTop = 0
+
     },
     nextStep(){
       this.changeActive('fourth')
-      document.documentElement.scrollTop = 0
+
     },
     handleAdd(refName) {
       this.visible = true

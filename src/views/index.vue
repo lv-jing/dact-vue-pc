@@ -2,9 +2,9 @@
   <div class="app-container home">
     <el-card class="box-card">
       <div slot="header" class="clearfix">
-        <span>Hi, 吕静!</span>
+        <span>Hi!</span>
       </div>
-      <div v-for="o in 1" :key="o" class="text item">
+      <div class="text item">
         Welcome!
       </div>
     </el-card>

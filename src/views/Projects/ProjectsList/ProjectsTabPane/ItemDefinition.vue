@@ -6,17 +6,17 @@
              ref="ruleForm"
              label-width="304px"
              class="demo-ruleForm font-semibold">
-      <el-form-item prop="pass">
+      <el-form-item prop="overview">
         <template slot="label">
           <span>2 System Overview - 系统概述</span>
         </template>
-        <el-input type="textarea" autosize v-model="ruleForm.pass" placeholder="Please Input"></el-input>
+        <el-input type="textarea" autosize v-model="ruleForm.overview" placeholder="Please Input"></el-input>
       </el-form-item>
-      <el-form-item prop="pass1">
+      <el-form-item prop="system_information">
         <template slot="label">
           <span>2.1 System Information - 系统信息</span>
         </template>
-        <el-input type="textarea" autosize v-model.number="ruleForm.pass1" placeholder="Please Input"></el-input>
+        <el-input type="textarea" autosize v-model.number="ruleForm.system_information" placeholder="Please Input"></el-input>
       </el-form-item>
       <el-form-item>
         <el-upload
@@ -164,6 +164,8 @@
 </template>
 
 <script>
+import {getProjectSystem} from "../../../../api/project";
+
 export default {
   name: 'ItemDefinition',
   props: {
@@ -209,14 +211,18 @@ export default {
     };
   },
   mounted() {
-
+    this.getInfo()
   },
   methods: {
+   async getInfo(){
+     const{data} = await getProjectSystem({id:this.$route.query.id})
+     this.ruleForm = {...this.ruleForm,...data}
+    },
     submitForm(formName) {
       this.$refs[formName].validate((valid) => {
         if (valid) {
           this.changeActive('third')
-          document.documentElement.scrollTop = 0
+
         }
         this.isErrorPosition()
         return false;
@@ -233,7 +239,7 @@ export default {
     },
     prevStep(){
       this.changeActive('first')
-      document.documentElement.scrollTop = 0
+
     }
   },
 };

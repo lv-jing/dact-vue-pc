@@ -112,6 +112,7 @@ import Specification from './ProjectsTabPane/Specification.vue';
 import Integration from './ProjectsTabPane/Integration.vue';
 import Validation from './ProjectsTabPane/Validation.vue';
 import TBD from './ProjectsTabPane/TBD.vue';
+import merge from 'webpack-merge'
 
 export default {
   name: 'EditProject',
@@ -140,9 +141,12 @@ export default {
   methods: {
     changeActive(val) {
       this.activeName = val
+      this.$router.push({
+        query:merge(this.$route.query,{active:val})
+      })
     },
     handleClick(tab) {
-      let query = {active: tab.name,}
+      let query = {active: tab.name,id:this.$route.query.id}
       if (tab.name === 'fifth') {
         query.level = 'first'
       }

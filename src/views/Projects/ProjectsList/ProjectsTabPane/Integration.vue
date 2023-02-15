@@ -75,11 +75,11 @@ export default {
   methods: {
     prevStep(){
       this.changeActive('twelfth')
-      document.documentElement.scrollTop = 0
+
     },
     nextStep() {
       this.changeActive('fourteenth')
-      document.documentElement.scrollTop = 0
+
     },
     onSubmit() {
       console.log('submit!');
